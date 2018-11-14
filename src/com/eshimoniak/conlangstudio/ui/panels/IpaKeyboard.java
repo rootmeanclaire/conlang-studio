@@ -15,8 +15,10 @@ import com.eshimoniak.conlangstudio.ui.labels.TableLabel;
 public class IpaKeyboard extends JTabbedPane {
 	private JPanel kbVowels, kbPcons, kbNPcons, kbTones, kbDiacritics;
 	private JScrollPane scrVowels, scrPcons, scrNPcons, scrTones, scrDiacritics;
+	private RawEditor rawEditor;
 	
-	public IpaKeyboard(RawEditor rawEditor) {
+	public IpaKeyboard() {
+		this.rawEditor = null;
 		kbVowels = new JPanel(new GridBagLayout());
 		GridBagConstraints gbc = new GridBagConstraints();
 		{
@@ -626,5 +628,9 @@ public class IpaKeyboard extends JTabbedPane {
 		}
 		scrDiacritics = new JScrollPane(kbDiacritics);
 		addTab("Diacritics", scrDiacritics);
+	}
+	
+	public void setRawEditor(RawEditor re) {
+		this.rawEditor = re;
 	}
 }

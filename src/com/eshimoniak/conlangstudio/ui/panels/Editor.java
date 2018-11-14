@@ -1,5 +1,6 @@
 package com.eshimoniak.conlangstudio.ui.panels;
 
+import java.io.File;
 import java.util.Arrays;
 import java.util.List;
 
@@ -16,11 +17,16 @@ import org.commonmark.node.Node;
 import org.commonmark.parser.Parser;
 import org.commonmark.renderer.html.HtmlRenderer;
 
+import com.eshimoniak.conlangstudio.Main;
+
 public class Editor extends JTabbedPane {
 	private RawEditor rawEditor;
 	private HtmlViewer htmlViewer;
 	
 	public Editor() {
+		this(null);
+	}
+	public Editor(File f) {
 		rawEditor = new RawEditor();
 		addTab("Markdown Editor", rawEditor);
 		htmlViewer = new HtmlViewer();
@@ -41,6 +47,10 @@ public class Editor extends JTabbedPane {
 			}
 		};
 		addChangeListener(tabChangeListener);
+		setTabPlacement(BOTTOM);
+		if (f != null) {
+			Main.setCurrFile(f);
+		}
 	}
 	
 	public RawEditor getRawEditor() {

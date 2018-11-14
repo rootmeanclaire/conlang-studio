@@ -16,14 +16,15 @@ import javax.swing.KeyStroke;
 
 import com.eshimoniak.conlangstudio.Main;
 import com.eshimoniak.conlangstudio.ui.panels.Editor;
+import com.eshimoniak.conlangstudio.ui.panels.EditorWrapper;
 import com.eshimoniak.conlangstudio.ui.panels.FileTreeViewer;
 import com.eshimoniak.conlangstudio.ui.panels.IpaKeyboard;
 
 public class MainWindow extends JFrame {
-	private JSplitPane mainWrapper, editorWrapper;
+	private JSplitPane mainWrapper, editKbWrapper;
 	private FileTreeViewer ftv;
 	private IpaKeyboard ipaKeyboard;
-	private Editor editor;
+	private EditorWrapper editor;
 	
 	private JMenuBar mb;
 	private JMenu mFile;
@@ -34,18 +35,18 @@ public class MainWindow extends JFrame {
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
 		ftv = new FileTreeViewer();
-		editor = new Editor();
-		ipaKeyboard = new IpaKeyboard(editor.getRawEditor());
+		editor = new EditorWrapper();
+		ipaKeyboard = new IpaKeyboard();
 		
-		editorWrapper = new JSplitPane(JSplitPane.VERTICAL_SPLIT, editor, ipaKeyboard);
-		editorWrapper.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_S, InputEvent.CTRL_DOWN_MASK), "save");
-		editorWrapper.getActionMap().put("save", new AbstractAction() {
+		editKbWrapper = new JSplitPane(JSplitPane.VERTICAL_SPLIT, editor, ipaKeyboard);
+		editKbWrapper.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_S, InputEvent.CTRL_DOWN_MASK), "save");
+		editKbWrapper.getActionMap().put("save", new AbstractAction() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				Main.saveCurrFile();
 			}
 		});
-		mainWrapper = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, ftv, editorWrapper);
+		mainWrapper = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, ftv, editKbWrapper);
 		add(mainWrapper);
 		
 		pack();
@@ -53,7 +54,7 @@ public class MainWindow extends JFrame {
 		setExtendedState(getExtendedState() | JFrame.MAXIMIZED_BOTH);
 		
 		setVisible(true);
-		editorWrapper.setResizeWeight(0.85);
+		editKbWrapper.setResizeWeight(0.85);
 		mainWrapper.setResizeWeight(0.2);
 		
 		mb = new JMenuBar();
@@ -72,8 +73,11 @@ public class MainWindow extends JFrame {
 		repaint();
 	}
 	
-	public Editor getEditor() {
+	public EditorWrapper getEditorWrapper() {
 		return editor;
+	}
+	public Editor getCurrentEditor() {
+		return (Editor) editor.getSelectedComponent();
 	}
 	public FileTreeViewer getFileTreeViewer() {
 		return ftv;

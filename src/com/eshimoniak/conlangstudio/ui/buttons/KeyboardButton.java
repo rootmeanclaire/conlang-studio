@@ -13,8 +13,10 @@ public class KeyboardButton extends JButton {
 		addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				String oldText = editor.getText();
-				editor.setText(oldText.substring(0, editor.getCaretPosition()) + text.replaceAll("◌", "") + oldText.substring(editor.getCaretPosition()));
+				if (editor != null) {
+					String oldText = editor.getText();
+					editor.setText(oldText.substring(0, editor.getCaretPosition()) + text.replaceAll("◌", "") + oldText.substring(editor.getCaretPosition()));
+				}
 			}
 		});
 	}

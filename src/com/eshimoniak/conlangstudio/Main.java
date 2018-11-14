@@ -14,6 +14,7 @@ import javax.swing.UIManager;
 import javax.swing.filechooser.FileFilter;
 
 import com.eshimoniak.conlangstudio.ui.MainWindow;
+import com.eshimoniak.conlangstudio.ui.panels.Editor;
 
 public class Main {
 	public static File projectRoot;
@@ -37,18 +38,11 @@ public class Main {
 	}
 	
 	public static void setCurrFile(File f) {
-		boolean resetFile = window.getEditor().getRawEditor().matchesFile();
-		if (!resetFile) {
-			resetFile = JOptionPane.showConfirmDialog(null, 
-					"Are you sure you want to close without saving?", 
-					"Close Dialog", 
-					JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION;
-		}
-		if (resetFile && !Util.isDirectory(f)) {
+		if (!Util.isDirectory(f)) {
 			currFile = f;
 			StringBuilder sb = new StringBuilder();
 			String ln;
-	
+			
 			try {
 				FileInputStream is = new FileInputStream(currFile);
 				BufferedReader in = new BufferedReader(new InputStreamReader(is, "UTF-8"));
@@ -61,7 +55,8 @@ public class Main {
 				e.printStackTrace();
 			}
 			
-			window.getEditor().getRawEditor().loadFile(sb.toString().replaceAll("$\\n", ""));
+			window.getEditorWrapper().addTab(f);
+			window.getCurrentEditor().getRawEditor().loadFile(sb.toString().replaceAll("$\\n", ""));
 		}
 	}
 	
@@ -95,10 +90,10 @@ public class Main {
 		
 		try {
 			BufferedWriter writer = new BufferedWriter(new FileWriter(currFile));
-			writer.write(window.getEditor().getRawEditor().getText());
+			writer.write(window.getCurrentEditor().getRawEditor().getText());
 			writer.close();
 			window.getFileTreeViewer().refreshTree();
-			window.getEditor().getRawEditor().matchesFile(true);
+			window.getCurrentEditor().getRawEditor().matchesFile(true);
 		} catch (IOException e) {
 			JOptionPane.showMessageDialog(window, "Error saving file", "IO Error", JOptionPane.ERROR_MESSAGE);
 			e.printStackTrace();
