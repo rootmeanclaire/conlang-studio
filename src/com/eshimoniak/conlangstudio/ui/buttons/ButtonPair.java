@@ -5,8 +5,8 @@ import java.awt.GridLayout;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
-import com.eshimoniak.conlangstudio.ui.panels.EditorWrapper;
-import com.eshimoniak.conlangstudio.ui.panels.RawEditor;
+import com.eshimoniak.conlangstudio.ui.panels.editor.EditorWrapper;
+import com.eshimoniak.conlangstudio.ui.panels.editor.RawEditor;
 
 public class ButtonPair extends JPanel {
 	public ButtonPair(EditorWrapper editor, String[] buttonTexts) {

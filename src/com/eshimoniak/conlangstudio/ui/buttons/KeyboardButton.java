@@ -5,9 +5,9 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 
-import com.eshimoniak.conlangstudio.ui.panels.Editor;
-import com.eshimoniak.conlangstudio.ui.panels.EditorWrapper;
-import com.eshimoniak.conlangstudio.ui.panels.RawEditor;
+import com.eshimoniak.conlangstudio.ui.panels.editor.Editor;
+import com.eshimoniak.conlangstudio.ui.panels.editor.EditorWrapper;
+import com.eshimoniak.conlangstudio.ui.panels.editor.RawEditor;
 
 public class KeyboardButton extends JButton {
 	public KeyboardButton(EditorWrapper editorWrapper, String text) {

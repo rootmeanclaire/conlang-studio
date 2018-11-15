@@ -1,4 +1,4 @@
-package com.eshimoniak.conlangstudio.ui.panels;
+package com.eshimoniak.conlangstudio.ui.panels.editor;
 
 import java.io.File;
 

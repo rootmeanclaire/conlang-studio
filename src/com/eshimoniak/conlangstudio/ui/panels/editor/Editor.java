@@ -1,4 +1,4 @@
-package com.eshimoniak.conlangstudio.ui.panels;
+package com.eshimoniak.conlangstudio.ui.panels.editor;
 
 import java.io.File;
 import java.util.Arrays;
@@ -19,6 +19,7 @@ import org.commonmark.renderer.html.HtmlRenderer;
 
 import com.eshimoniak.conlangstudio.Main;
 import com.eshimoniak.conlangstudio.MarkdownExtensions;
+import com.eshimoniak.conlangstudio.ui.panels.HtmlViewer;
 
 public class Editor extends JTabbedPane {
 	private RawEditor rawEditor;
