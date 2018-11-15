@@ -16,9 +16,9 @@ import javax.swing.KeyStroke;
 
 import com.eshimoniak.conlangstudio.Main;
 import com.eshimoniak.conlangstudio.ui.panels.FileTreeViewer;
+import com.eshimoniak.conlangstudio.ui.panels.IpaKeyboard;
 import com.eshimoniak.conlangstudio.ui.panels.editor.Editor;
 import com.eshimoniak.conlangstudio.ui.panels.editor.EditorWrapper;
-import com.eshimoniak.conlangstudio.ui.panels.editor.IpaKeyboard;
 
 public class MainWindow extends JFrame {
 	private JSplitPane mainWrapper, editKbWrapper;
@@ -35,6 +35,7 @@ public class MainWindow extends JFrame {
 	public MainWindow() {
 		super("Conlang Studio");
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		
 		ftv = new FileTreeViewer();
 		editor = new EditorWrapper();
 		ipaKeyboard = new IpaKeyboard(editor);
