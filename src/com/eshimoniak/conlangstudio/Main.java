@@ -31,7 +31,7 @@ public class Main {
 		JFileChooser jfc = new JFileChooser();
 		jfc.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
 		int returnVal = jfc.showOpenDialog(null);
-		if (returnVal == jfc.APPROVE_OPTION) {
+		if (returnVal == JFileChooser.APPROVE_OPTION) {
 			projectRoot = jfc.getSelectedFile();
 			try {
 				MarkdownExtensions.init();
@@ -86,7 +86,7 @@ public class Main {
 					}
 				}
 			});
-			if (jfc.showOpenDialog(null) == jfc.APPROVE_OPTION) {
+			if (jfc.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
 				currFile = jfc.getSelectedFile();
 			}
 			if (!currFile.getName().endsWith(".md")) {

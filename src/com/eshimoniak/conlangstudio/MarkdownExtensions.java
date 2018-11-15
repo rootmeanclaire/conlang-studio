@@ -6,7 +6,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -49,8 +48,6 @@ public class MarkdownExtensions {
 		}
 		
 		sb.append(text.substring(endLast));
-
-		System.out.println(sb.toString());
 		return sb.toString();
 	}
 	
@@ -96,7 +93,7 @@ public class MarkdownExtensions {
 						}
 					}
 				}
-				sb.append(consPair);
+				sb.append(consPair.replaceAll(", $", ""));
 				sb.append('|');
 			}
 			sb.setLength(sb.length() - 1);
