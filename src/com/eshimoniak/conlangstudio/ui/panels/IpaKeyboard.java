@@ -1,4 +1,4 @@
-package com.eshimoniak.conlangstudio.ui.panels.editor;
+package com.eshimoniak.conlangstudio.ui.panels;
 
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -11,6 +11,7 @@ import com.eshimoniak.conlangstudio.ui.buttons.ButtonPair;
 import com.eshimoniak.conlangstudio.ui.buttons.KeyboardButton;
 import com.eshimoniak.conlangstudio.ui.labels.PaddedLabel;
 import com.eshimoniak.conlangstudio.ui.labels.TableLabel;
+import com.eshimoniak.conlangstudio.ui.panels.editor.EditorWrapper;
 
 public class IpaKeyboard extends JTabbedPane {
 	private JPanel kbVowels, kbPcons, kbNPcons, kbTones, kbDiacritics;
