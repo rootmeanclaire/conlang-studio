@@ -16,6 +16,7 @@ import javax.swing.filechooser.FileFilter;
 import com.eshimoniak.conlangstudio.ui.MainWindow;
 
 public class Main {
+	public static final String VERSION = "0.0.0";
 	public static File projectRoot;
 	public static File currFile = null;
 	private static MainWindow window;

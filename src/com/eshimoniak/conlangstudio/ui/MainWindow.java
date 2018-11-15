@@ -11,6 +11,7 @@ import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JSplitPane;
 import javax.swing.KeyStroke;
 
@@ -60,6 +61,7 @@ public class MainWindow extends JFrame {
 		mainWrapper.setResizeWeight(0.2);
 		
 		mb = new JMenuBar();
+		
 		mFile = new JMenu("File");
 		miSave = new JMenuItem("Save");
 		miSave.addActionListener(new ActionListener() {
@@ -70,6 +72,17 @@ public class MainWindow extends JFrame {
 		});
 		mFile.add(miSave);
 		mb.add(mFile);
+		
+		mHelp = new JMenu("Help");
+		miAbout = new JMenuItem("About");
+		miAbout.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				JOptionPane.showMessageDialog(MainWindow.this, "Version " + Main.VERSION, "About Conlang Studio", JOptionPane.INFORMATION_MESSAGE);
+			}
+		});
+		mHelp.add(miAbout);
+		
 		setJMenuBar(mb);
 		validate();
 		repaint();
