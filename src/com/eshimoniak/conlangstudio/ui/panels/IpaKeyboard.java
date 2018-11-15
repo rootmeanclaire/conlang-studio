@@ -15,10 +15,8 @@ import com.eshimoniak.conlangstudio.ui.labels.TableLabel;
 public class IpaKeyboard extends JTabbedPane {
 	private JPanel kbVowels, kbPcons, kbNPcons, kbTones, kbDiacritics;
 	private JScrollPane scrVowels, scrPcons, scrNPcons, scrTones, scrDiacritics;
-	private RawEditor rawEditor;
 	
-	public IpaKeyboard() {
-		this.rawEditor = null;
+	public IpaKeyboard(EditorWrapper editorWrapper) {
 		kbVowels = new JPanel(new GridBagLayout());
 		GridBagConstraints gbc = new GridBagConstraints();
 		{
@@ -52,43 +50,43 @@ public class IpaKeyboard extends JTabbedPane {
 		{
 			gbc.gridx = 1;
 			gbc.gridy = 1;
-			kbVowels.add(new ButtonPair(rawEditor, "i", "y"), gbc);
+			kbVowels.add(new ButtonPair(editorWrapper, "i", "y"), gbc);
 			gbc.gridy++;
-			kbVowels.add(new ButtonPair(rawEditor, "ɪ", "ʏ"), gbc);
+			kbVowels.add(new ButtonPair(editorWrapper, "ɪ", "ʏ"), gbc);
 			gbc.gridy++;
-			kbVowels.add(new ButtonPair(rawEditor, "e", "ø"), gbc);
+			kbVowels.add(new ButtonPair(editorWrapper, "e", "ø"), gbc);
 			gbc.gridy += 2;
-			kbVowels.add(new ButtonPair(rawEditor, "ɛ", "œ"), gbc);
+			kbVowels.add(new ButtonPair(editorWrapper, "ɛ", "œ"), gbc);
 			gbc.gridy++;
-			kbVowels.add(new ButtonPair(rawEditor, "æ", null), gbc);
+			kbVowels.add(new ButtonPair(editorWrapper, "æ", null), gbc);
 			gbc.gridy++;
-			kbVowels.add(new ButtonPair(rawEditor, "a", "ɶ"), gbc);
+			kbVowels.add(new ButtonPair(editorWrapper, "a", "ɶ"), gbc);
 		}
 		{
 			gbc.gridx = 2;
 			gbc.gridy = 1;
-			kbVowels.add(new ButtonPair(rawEditor, "ɨ", "ʉ"), gbc);
+			kbVowels.add(new ButtonPair(editorWrapper, "ɨ", "ʉ"), gbc);
 			gbc.gridy += 2;
-			kbVowels.add(new ButtonPair(rawEditor, "ɘ", "ɵ"), gbc);
+			kbVowels.add(new ButtonPair(editorWrapper, "ɘ", "ɵ"), gbc);
 			gbc.gridy++;
-			kbVowels.add(new KeyboardButton(rawEditor, "ə"), gbc);
+			kbVowels.add(new KeyboardButton(editorWrapper, "ə"), gbc);
 			gbc.gridy++;
-			kbVowels.add(new ButtonPair(rawEditor, "ɜ", "ɞ"), gbc);
+			kbVowels.add(new ButtonPair(editorWrapper, "ɜ", "ɞ"), gbc);
 			gbc.gridy++;
-			kbVowels.add(new KeyboardButton(rawEditor, "ɐ"), gbc);
+			kbVowels.add(new KeyboardButton(editorWrapper, "ɐ"), gbc);
 		}
 		{
 			gbc.gridx = 3;
 			gbc.gridy = 1;
-			kbVowels.add(new ButtonPair(rawEditor, "ɯ", "u"), gbc);
+			kbVowels.add(new ButtonPair(editorWrapper, "ɯ", "u"), gbc);
 			gbc.gridy++;
-			kbVowels.add(new ButtonPair(rawEditor, null, "ʊ"), gbc);
+			kbVowels.add(new ButtonPair(editorWrapper, null, "ʊ"), gbc);
 			gbc.gridy++;
-			kbVowels.add(new ButtonPair(rawEditor, "ɤ", "o"), gbc);
+			kbVowels.add(new ButtonPair(editorWrapper, "ɤ", "o"), gbc);
 			gbc.gridy += 2;
-			kbVowels.add(new ButtonPair(rawEditor, "ʌ", "ɔ"), gbc);
+			kbVowels.add(new ButtonPair(editorWrapper, "ʌ", "ɔ"), gbc);
 			gbc.gridy += 2;
-			kbVowels.add(new ButtonPair(rawEditor, "ɑ", "ɒ"), gbc);
+			kbVowels.add(new ButtonPair(editorWrapper, "ɑ", "ɒ"), gbc);
 		}
 		scrVowels = new JScrollPane(kbVowels);
 		addTab("Vowels", scrVowels);
@@ -141,122 +139,120 @@ public class IpaKeyboard extends JTabbedPane {
 		{
 			gbc.gridx = 1;
 			gbc.gridy = 1;
-			kbPcons.add(new ButtonPair(rawEditor, "p", "b"), gbc);
+			kbPcons.add(new ButtonPair(editorWrapper, "p", "b"), gbc);
 			gbc.gridx += 2;
 			gbc.gridwidth = 3;
-			kbPcons.add(new ButtonPair(rawEditor, "t", "d"), gbc);
+			kbPcons.add(new ButtonPair(editorWrapper, "t", "d"), gbc);
 			gbc.gridx += 3;
 			gbc.gridwidth = 1;
-			kbPcons.add(new ButtonPair(rawEditor, "ʈ", "ɖ"), gbc);
+			kbPcons.add(new ButtonPair(editorWrapper, "ʈ", "ɖ"), gbc);
 			gbc.gridx++;
-			kbPcons.add(new ButtonPair(rawEditor, "c", "ɟ"), gbc);
+			kbPcons.add(new ButtonPair(editorWrapper, "c", "ɟ"), gbc);
 			gbc.gridx++;
-			kbPcons.add(new ButtonPair(rawEditor, "k", "ɡ"), gbc);
+			kbPcons.add(new ButtonPair(editorWrapper, "k", "ɡ"), gbc);
 			gbc.gridx++;
-			kbPcons.add(new ButtonPair(rawEditor, "q", "ɢ"), gbc);
+			kbPcons.add(new ButtonPair(editorWrapper, "q", "ɢ"), gbc);
 			gbc.gridx += 2;
-			kbPcons.add(new ButtonPair(rawEditor, "ʔ", null), gbc);
+			kbPcons.add(new ButtonPair(editorWrapper, "ʔ", null), gbc);
 		}
 		{
 			gbc.gridx = 1;
 			gbc.gridy++;
-			kbPcons.add(new ButtonPair(rawEditor, null, "m"), gbc);
+			kbPcons.add(new ButtonPair(editorWrapper, null, "m"), gbc);
 			gbc.gridx++;
-			kbPcons.add(new ButtonPair(rawEditor, null, "ɱ"), gbc);
+			kbPcons.add(new ButtonPair(editorWrapper, null, "ɱ"), gbc);
 			gbc.gridx++;
 			gbc.gridwidth = 3;
-			kbPcons.add(new ButtonPair(rawEditor, null, "n"), gbc);
-			gbc.gridx++;
+			kbPcons.add(new ButtonPair(editorWrapper, null, "n"), gbc);
+			gbc.gridx += 3;
 			gbc.gridwidth = 1;
-			kbPcons.add(new ButtonPair(rawEditor, "c", "ɟ"), gbc);
+			kbPcons.add(new ButtonPair(editorWrapper, null, "ɳ"), gbc);
 			gbc.gridx++;
-			kbPcons.add(new ButtonPair(rawEditor, "k", "ɡ"), gbc);
+			kbPcons.add(new ButtonPair(editorWrapper, null, "ɲ"), gbc);
 			gbc.gridx++;
-			kbPcons.add(new ButtonPair(rawEditor, "q", "ɢ"), gbc);
-			gbc.gridx++;
-			kbPcons.add(new ButtonPair(rawEditor, "ʔ", null), gbc);
+			kbPcons.add(new ButtonPair(editorWrapper, null, "ɴ"), gbc);
 		}
 		{
 			gbc.gridx = 1;
 			gbc.gridy++;
-			kbPcons.add(new ButtonPair(rawEditor, null, "ʙ"), gbc);
+			kbPcons.add(new ButtonPair(editorWrapper, null, "ʙ"), gbc);
 			gbc.gridx += 2;
 			gbc.gridwidth = 3;
-			kbPcons.add(new ButtonPair(rawEditor, null, "r"), gbc);
+			kbPcons.add(new ButtonPair(editorWrapper, null, "r"), gbc);
 			gbc.gridx += 6;
 			gbc.gridwidth = 1;
-			kbPcons.add(new ButtonPair(rawEditor, null, "ʀ"), gbc);
+			kbPcons.add(new ButtonPair(editorWrapper, null, "ʀ"), gbc);
 		}
 		{
 			gbc.gridx = 2;
 			gbc.gridy++;
-			kbPcons.add(new ButtonPair(rawEditor, null, "ⱱ"), gbc);
+			kbPcons.add(new ButtonPair(editorWrapper, null, "ⱱ"), gbc);
 			gbc.gridx++;
 			gbc.gridwidth = 3;
-			kbPcons.add(new ButtonPair(rawEditor, null, "ɾ"), gbc);
+			kbPcons.add(new ButtonPair(editorWrapper, null, "ɾ"), gbc);
 			gbc.gridx += 3;
 			gbc.gridwidth = 1;
-			kbPcons.add(new ButtonPair(rawEditor, null, "ɽ"), gbc);
+			kbPcons.add(new ButtonPair(editorWrapper, null, "ɽ"), gbc);
 		}
 		{
 			gbc.gridx = 1;
 			gbc.gridy++;
-			kbPcons.add(new ButtonPair(rawEditor, "ɸ", "β"), gbc);
+			kbPcons.add(new ButtonPair(editorWrapper, "ɸ", "β"), gbc);
 			gbc.gridx++;
-			kbPcons.add(new ButtonPair(rawEditor, "f", "v"), gbc);
+			kbPcons.add(new ButtonPair(editorWrapper, "f", "v"), gbc);
 			gbc.gridx++;
-			kbPcons.add(new ButtonPair(rawEditor, "θ", "ð"), gbc);
+			kbPcons.add(new ButtonPair(editorWrapper, "θ", "ð"), gbc);
 			gbc.gridx++;
-			kbPcons.add(new ButtonPair(rawEditor, "s", "z"), gbc);
+			kbPcons.add(new ButtonPair(editorWrapper, "s", "z"), gbc);
 			gbc.gridx++;
-			kbPcons.add(new ButtonPair(rawEditor, "ʃ", "ʒ"), gbc);
+			kbPcons.add(new ButtonPair(editorWrapper, "ʃ", "ʒ"), gbc);
 			gbc.gridx++;
-			kbPcons.add(new ButtonPair(rawEditor, "ʂ", "ʐ"), gbc);
+			kbPcons.add(new ButtonPair(editorWrapper, "ʂ", "ʐ"), gbc);
 			gbc.gridx++;
-			kbPcons.add(new ButtonPair(rawEditor, "ç", "ʝ"), gbc);
+			kbPcons.add(new ButtonPair(editorWrapper, "ç", "ʝ"), gbc);
 			gbc.gridx++;
-			kbPcons.add(new ButtonPair(rawEditor, "x", "ɣ"), gbc);
+			kbPcons.add(new ButtonPair(editorWrapper, "x", "ɣ"), gbc);
 			gbc.gridx++;
-			kbPcons.add(new ButtonPair(rawEditor, "χ", "ʁ"), gbc);
+			kbPcons.add(new ButtonPair(editorWrapper, "χ", "ʁ"), gbc);
 			gbc.gridx++;
-			kbPcons.add(new ButtonPair(rawEditor, "ħ", "ʕ"), gbc);
+			kbPcons.add(new ButtonPair(editorWrapper, "ħ", "ʕ"), gbc);
 			gbc.gridx++;
-			kbPcons.add(new ButtonPair(rawEditor, "h", "ɦ"), gbc);
+			kbPcons.add(new ButtonPair(editorWrapper, "h", "ɦ"), gbc);
 		}
 		{
 			gbc.gridx = 3;
 			gbc.gridy++;
 			gbc.gridwidth = 3;
-			kbPcons.add(new ButtonPair(rawEditor, "ɬ", "ɮ"), gbc);
+			kbPcons.add(new ButtonPair(editorWrapper, "ɬ", "ɮ"), gbc);
 		}
 		{
 			gbc.gridx = 2;
 			gbc.gridy++;
 			gbc.gridwidth = 1;
-			kbPcons.add(new ButtonPair(rawEditor, null, "ʋ"), gbc);
+			kbPcons.add(new ButtonPair(editorWrapper, null, "ʋ"), gbc);
 			gbc.gridx++;
 			gbc.gridwidth = 3;
-			kbPcons.add(new ButtonPair(rawEditor, null, "ɹ"), gbc);
+			kbPcons.add(new ButtonPair(editorWrapper, null, "ɹ"), gbc);
 			gbc.gridx += 3;
 			gbc.gridwidth = 1;
-			kbPcons.add(new ButtonPair(rawEditor, null, "ɻ"), gbc);
+			kbPcons.add(new ButtonPair(editorWrapper, null, "ɻ"), gbc);
 			gbc.gridx++;
-			kbPcons.add(new ButtonPair(rawEditor, null, "j"), gbc);
+			kbPcons.add(new ButtonPair(editorWrapper, null, "j"), gbc);
 			gbc.gridx++;
-			kbPcons.add(new ButtonPair(rawEditor, null, "ɰ"), gbc);
+			kbPcons.add(new ButtonPair(editorWrapper, null, "ɰ"), gbc);
 		}
 		{
 			gbc.gridx = 3;
 			gbc.gridy++;
 			gbc.gridwidth = 3;
-			kbPcons.add(new ButtonPair(rawEditor, null, "l"), gbc);
+			kbPcons.add(new ButtonPair(editorWrapper, null, "l"), gbc);
 			gbc.gridx += 3;
 			gbc.gridwidth = 1;
-			kbPcons.add(new ButtonPair(rawEditor, null, "ɭ"), gbc);
+			kbPcons.add(new ButtonPair(editorWrapper, null, "ɭ"), gbc);
 			gbc.gridx++;
-			kbPcons.add(new ButtonPair(rawEditor, null, "ʎ"), gbc);
+			kbPcons.add(new ButtonPair(editorWrapper, null, "ʎ"), gbc);
 			gbc.gridx++;
-			kbPcons.add(new ButtonPair(rawEditor, null, "ʟ"), gbc);	
+			kbPcons.add(new ButtonPair(editorWrapper, null, "ʟ"), gbc);	
 		}
 		scrPcons = new JScrollPane(kbPcons);
 		addTab("Pulmonic Consonants", scrPcons);
@@ -278,15 +274,15 @@ public class IpaKeyboard extends JTabbedPane {
 			gbc.gridx = 0;
 			gbc.gridy++;
 			gbc.gridwidth = 1;
-			kbNPcons.add(new KeyboardButton(rawEditor, "ʘ"), gbc);
+			kbNPcons.add(new KeyboardButton(editorWrapper, "ʘ"), gbc);
 			gbc.gridy++;
-			kbNPcons.add(new KeyboardButton(rawEditor, "ǀ"), gbc);
+			kbNPcons.add(new KeyboardButton(editorWrapper, "ǀ"), gbc);
 			gbc.gridy++;
-			kbNPcons.add(new KeyboardButton(rawEditor, "!"), gbc);
+			kbNPcons.add(new KeyboardButton(editorWrapper, "!"), gbc);
 			gbc.gridy++;
-			kbNPcons.add(new KeyboardButton(rawEditor, "ǂ"), gbc);
+			kbNPcons.add(new KeyboardButton(editorWrapper, "ǂ"), gbc);
 			gbc.gridy++;
-			kbNPcons.add(new KeyboardButton(rawEditor, "ǁ"), gbc);
+			kbNPcons.add(new KeyboardButton(editorWrapper, "ǁ"), gbc);
 		}
 		{
 			gbc.gridx++;
@@ -304,15 +300,15 @@ public class IpaKeyboard extends JTabbedPane {
 		{
 			gbc.gridx++;
 			gbc.gridy = 1;
-			kbNPcons.add(new KeyboardButton(rawEditor, "ɓ"), gbc);
+			kbNPcons.add(new KeyboardButton(editorWrapper, "ɓ"), gbc);
 			gbc.gridy++;
-			kbNPcons.add(new KeyboardButton(rawEditor, "ɗ"), gbc);
+			kbNPcons.add(new KeyboardButton(editorWrapper, "ɗ"), gbc);
 			gbc.gridy++;
-			kbNPcons.add(new KeyboardButton(rawEditor, "ʄ"), gbc);
+			kbNPcons.add(new KeyboardButton(editorWrapper, "ʄ"), gbc);
 			gbc.gridy++;
-			kbNPcons.add(new KeyboardButton(rawEditor, "ɠ"), gbc);
+			kbNPcons.add(new KeyboardButton(editorWrapper, "ɠ"), gbc);
 			gbc.gridy++;
-			kbNPcons.add(new KeyboardButton(rawEditor, "ʛ"), gbc);
+			kbNPcons.add(new KeyboardButton(editorWrapper, "ʛ"), gbc);
 		}
 		{
 			gbc.gridx++;
@@ -330,15 +326,15 @@ public class IpaKeyboard extends JTabbedPane {
 		{
 			gbc.gridx++;
 			gbc.gridy = 1;
-			kbNPcons.add(new KeyboardButton(rawEditor, "ʼ"), gbc);
+			kbNPcons.add(new KeyboardButton(editorWrapper, "ʼ"), gbc);
 			gbc.gridy++;
-			kbNPcons.add(new KeyboardButton(rawEditor, "pʼ"), gbc);
+			kbNPcons.add(new KeyboardButton(editorWrapper, "pʼ"), gbc);
 			gbc.gridy++;
-			kbNPcons.add(new KeyboardButton(rawEditor, "tʼ"), gbc);
+			kbNPcons.add(new KeyboardButton(editorWrapper, "tʼ"), gbc);
 			gbc.gridy++;
-			kbNPcons.add(new KeyboardButton(rawEditor, "kʼ"), gbc);
+			kbNPcons.add(new KeyboardButton(editorWrapper, "kʼ"), gbc);
 			gbc.gridy++;
-			kbNPcons.add(new KeyboardButton(rawEditor, "sʼ"), gbc);
+			kbNPcons.add(new KeyboardButton(editorWrapper, "sʼ"), gbc);
 		}
 		{
 			gbc.gridx++;
@@ -356,23 +352,23 @@ public class IpaKeyboard extends JTabbedPane {
 		{
 			gbc.gridx++;
 			gbc.gridy = 1;
-			kbNPcons.add(new KeyboardButton(rawEditor, "ʍ"), gbc);
+			kbNPcons.add(new KeyboardButton(editorWrapper, "ʍ"), gbc);
 			gbc.gridy++;
-			kbNPcons.add(new KeyboardButton(rawEditor, "w"), gbc);
+			kbNPcons.add(new KeyboardButton(editorWrapper, "w"), gbc);
 			gbc.gridy++;
-			kbNPcons.add(new KeyboardButton(rawEditor, "ɥ"), gbc);
+			kbNPcons.add(new KeyboardButton(editorWrapper, "ɥ"), gbc);
 			gbc.gridy++;
-			kbNPcons.add(new KeyboardButton(rawEditor, "ʜ"), gbc);
+			kbNPcons.add(new KeyboardButton(editorWrapper, "ʜ"), gbc);
 			gbc.gridy++;
-			kbNPcons.add(new KeyboardButton(rawEditor, "ʢ"), gbc);
+			kbNPcons.add(new KeyboardButton(editorWrapper, "ʢ"), gbc);
 			gbc.gridy++;
-			kbNPcons.add(new KeyboardButton(rawEditor, "ʡ"), gbc);
+			kbNPcons.add(new KeyboardButton(editorWrapper, "ʡ"), gbc);
 			gbc.gridy++;
-			kbNPcons.add(new ButtonPair(rawEditor, "ɕ", "ʑ"), gbc);
+			kbNPcons.add(new ButtonPair(editorWrapper, "ɕ", "ʑ"), gbc);
 			gbc.gridy++;
-			kbNPcons.add(new KeyboardButton(rawEditor, "ɺ"), gbc);
+			kbNPcons.add(new KeyboardButton(editorWrapper, "ɺ"), gbc);
 			gbc.gridy++;
-			kbNPcons.add(new KeyboardButton(rawEditor, "ɧ"), gbc);
+			kbNPcons.add(new KeyboardButton(editorWrapper, "ɧ"), gbc);
 		}
 		{
 			gbc.gridx++;
@@ -411,19 +407,19 @@ public class IpaKeyboard extends JTabbedPane {
 			gbc.gridx = 0;
 			gbc.gridy = 1;
 			gbc.gridwidth = 1;
-			kbTones.add(new ButtonPair(rawEditor, "◌̋ ", "˥"), gbc);
+			kbTones.add(new ButtonPair(editorWrapper, "◌̋ ", "˥"), gbc);
 			gbc.gridy++;
-			kbTones.add(new ButtonPair(rawEditor, "◌́ ", "˦"), gbc);
+			kbTones.add(new ButtonPair(editorWrapper, "◌́ ", "˦"), gbc);
 			gbc.gridy++;
-			kbTones.add(new ButtonPair(rawEditor, "◌̄ ", "˧"), gbc);
+			kbTones.add(new ButtonPair(editorWrapper, "◌̄ ", "˧"), gbc);
 			gbc.gridy++;
-			kbTones.add(new ButtonPair(rawEditor, "◌̀ ", "˨"), gbc);
+			kbTones.add(new ButtonPair(editorWrapper, "◌̀ ", "˨"), gbc);
 			gbc.gridy++;
-			kbTones.add(new ButtonPair(rawEditor, "◌̏ ", "˩"), gbc);
+			kbTones.add(new ButtonPair(editorWrapper, "◌̏ ", "˩"), gbc);
 			gbc.gridy++;
-			kbTones.add(new KeyboardButton(rawEditor, "◌ꜜ"), gbc);
+			kbTones.add(new KeyboardButton(editorWrapper, "◌ꜜ"), gbc);
 			gbc.gridy++;
-			kbTones.add(new KeyboardButton(rawEditor, "◌ꜛ"), gbc);
+			kbTones.add(new KeyboardButton(editorWrapper, "◌ꜛ"), gbc);
 		}
 		{
 			gbc.gridx++;
@@ -447,19 +443,19 @@ public class IpaKeyboard extends JTabbedPane {
 			gbc.gridx++;
 			gbc.gridy = 1;
 			gbc.gridwidth = 1;
-			kbTones.add(new ButtonPair(rawEditor, "◌̌ ", "˩˥"), gbc);
+			kbTones.add(new ButtonPair(editorWrapper, "◌̌ ", "˩˥"), gbc);
 			gbc.gridy++;
-			kbTones.add(new ButtonPair(rawEditor, "◌̂ ", "˥˩"), gbc);
+			kbTones.add(new ButtonPair(editorWrapper, "◌̂ ", "˥˩"), gbc);
 			gbc.gridy++;
-			kbTones.add(new ButtonPair(rawEditor, "◌᷄", "˦˥"), gbc);
+			kbTones.add(new ButtonPair(editorWrapper, "◌᷄", "˦˥"), gbc);
 			gbc.gridy++;
-			kbTones.add(new ButtonPair(rawEditor, "◌᷅ ", "˩˨"), gbc);
+			kbTones.add(new ButtonPair(editorWrapper, "◌᷅ ", "˩˨"), gbc);
 			gbc.gridy++;
-			kbTones.add(new ButtonPair(rawEditor, "◌᷈ ", "˧˦˧"), gbc);
+			kbTones.add(new ButtonPair(editorWrapper, "◌᷈ ", "˧˦˧"), gbc);
 			gbc.gridy++;
-			kbTones.add(new KeyboardButton(rawEditor, "↗︎"), gbc);
+			kbTones.add(new KeyboardButton(editorWrapper, "↗︎"), gbc);
 			gbc.gridy++;
-			kbTones.add(new KeyboardButton(rawEditor, "↘︎"), gbc);
+			kbTones.add(new KeyboardButton(editorWrapper, "↘︎"), gbc);
 		}
 		{
 			gbc.gridx++;
@@ -487,29 +483,29 @@ public class IpaKeyboard extends JTabbedPane {
 			gbc.gridx = 0;
 			gbc.gridy = 0;
 			gbc.gridwidth = 1;
-			kbDiacritics.add(new ButtonPair(rawEditor, "◌̥ ", "◌̊"), gbc);
+			kbDiacritics.add(new ButtonPair(editorWrapper, "◌̥ ", "◌̊"), gbc);
 			gbc.gridy++;
-			kbDiacritics.add(new KeyboardButton(rawEditor, "◌̬"), gbc);
+			kbDiacritics.add(new KeyboardButton(editorWrapper, "◌̬"), gbc);
 			gbc.gridy++;
-			kbDiacritics.add(new KeyboardButton(rawEditor, "◌ʰ"), gbc);
+			kbDiacritics.add(new KeyboardButton(editorWrapper, "◌ʰ"), gbc);
 			gbc.gridy++;
-			kbDiacritics.add(new ButtonPair(rawEditor, new String[] {"◌̹ ", "◌͗", "◌˒"}), gbc);
+			kbDiacritics.add(new ButtonPair(editorWrapper, new String[] {"◌̹ ", "◌͗", "◌˒"}), gbc);
 			gbc.gridy++;
-			kbDiacritics.add(new ButtonPair(rawEditor, new String[] {"◌̜ ", "◌͑ ","◌˓"}), gbc);
+			kbDiacritics.add(new ButtonPair(editorWrapper, new String[] {"◌̜ ", "◌͑ ","◌˓"}), gbc);
 			gbc.gridy++;
-			kbDiacritics.add(new ButtonPair(rawEditor, "◌̟ ", "◌˖"), gbc);
+			kbDiacritics.add(new ButtonPair(editorWrapper, "◌̟ ", "◌˖"), gbc);
 			gbc.gridy++;
-			kbDiacritics.add(new ButtonPair(rawEditor, "◌̠ ", "◌˗"), gbc);
+			kbDiacritics.add(new ButtonPair(editorWrapper, "◌̠ ", "◌˗"), gbc);
 			gbc.gridy++;
-			kbDiacritics.add(new KeyboardButton(rawEditor, "◌̈"), gbc);
+			kbDiacritics.add(new KeyboardButton(editorWrapper, "◌̈"), gbc);
 			gbc.gridy++;
-			kbDiacritics.add(new KeyboardButton(rawEditor, "◌̽"), gbc);
+			kbDiacritics.add(new KeyboardButton(editorWrapper, "◌̽"), gbc);
 			gbc.gridy++;
-			kbDiacritics.add(new ButtonPair(rawEditor, "◌̩ ", "◌̍"), gbc);
+			kbDiacritics.add(new ButtonPair(editorWrapper, "◌̩ ", "◌̍"), gbc);
 			gbc.gridy++;
-			kbDiacritics.add(new ButtonPair(rawEditor, "◌̯ ", "◌̑"), gbc);
+			kbDiacritics.add(new ButtonPair(editorWrapper, "◌̯ ", "◌̑"), gbc);
 			gbc.gridy++;
-			kbDiacritics.add(new KeyboardButton(rawEditor, "◌˞"), gbc);
+			kbDiacritics.add(new KeyboardButton(editorWrapper, "◌˞"), gbc);
 		}
 		{
 			gbc.gridx++;
@@ -541,29 +537,29 @@ public class IpaKeyboard extends JTabbedPane {
 		{
 			gbc.gridx++;
 			gbc.gridy = 0;
-			kbDiacritics.add(new KeyboardButton(rawEditor, "◌̤"), gbc);
+			kbDiacritics.add(new KeyboardButton(editorWrapper, "◌̤"), gbc);
 			gbc.gridy++;
-			kbDiacritics.add(new KeyboardButton(rawEditor, "◌̰"), gbc);
+			kbDiacritics.add(new KeyboardButton(editorWrapper, "◌̰"), gbc);
 			gbc.gridy++;
-			kbDiacritics.add(new KeyboardButton(rawEditor, "◌̼"), gbc);
+			kbDiacritics.add(new KeyboardButton(editorWrapper, "◌̼"), gbc);
 			gbc.gridy++;
-			kbDiacritics.add(new KeyboardButton(rawEditor, "◌ʷ"), gbc);
+			kbDiacritics.add(new KeyboardButton(editorWrapper, "◌ʷ"), gbc);
 			gbc.gridy++;
-			kbDiacritics.add(new KeyboardButton(rawEditor, "◌ʲ"), gbc);
+			kbDiacritics.add(new KeyboardButton(editorWrapper, "◌ʲ"), gbc);
 			gbc.gridy++;
-			kbDiacritics.add(new KeyboardButton(rawEditor, "◌ˠ"), gbc);
+			kbDiacritics.add(new KeyboardButton(editorWrapper, "◌ˠ"), gbc);
 			gbc.gridy++;
-			kbDiacritics.add(new KeyboardButton(rawEditor, "◌ˁ"), gbc);
+			kbDiacritics.add(new KeyboardButton(editorWrapper, "◌ˁ"), gbc);
 			gbc.gridy++;
-			kbDiacritics.add(new KeyboardButton(rawEditor, "◌̴"), gbc);
+			kbDiacritics.add(new KeyboardButton(editorWrapper, "◌̴"), gbc);
 			gbc.gridy++;
-			kbDiacritics.add(new ButtonPair(rawEditor, "◌̝ ", "◌˔"), gbc);
+			kbDiacritics.add(new ButtonPair(editorWrapper, "◌̝ ", "◌˔"), gbc);
 			gbc.gridy++;
-			kbDiacritics.add(new ButtonPair(rawEditor, "◌̞ ", "◌˕"), gbc);
+			kbDiacritics.add(new ButtonPair(editorWrapper, "◌̞ ", "◌˕"), gbc);
 			gbc.gridy++;
-			kbDiacritics.add(new KeyboardButton(rawEditor, "◌̘"), gbc);
+			kbDiacritics.add(new KeyboardButton(editorWrapper, "◌̘"), gbc);
 			gbc.gridy++;
-			kbDiacritics.add(new KeyboardButton(rawEditor, "◌̙"), gbc);
+			kbDiacritics.add(new KeyboardButton(editorWrapper, "◌̙"), gbc);
 		}
 		{
 			gbc.gridx++;
@@ -595,19 +591,19 @@ public class IpaKeyboard extends JTabbedPane {
 		{
 			gbc.gridx++;
 			gbc.gridy = 0;
-			kbDiacritics.add(new ButtonPair(rawEditor, "◌̪ ", "◌͆"), gbc);
+			kbDiacritics.add(new ButtonPair(editorWrapper, "◌̪ ", "◌͆"), gbc);
 			gbc.gridy++;
-			kbDiacritics.add(new KeyboardButton(rawEditor, "◌̺"), gbc);
+			kbDiacritics.add(new KeyboardButton(editorWrapper, "◌̺"), gbc);
 			gbc.gridy++;
-			kbDiacritics.add(new KeyboardButton(rawEditor, "◌̻"), gbc);
+			kbDiacritics.add(new KeyboardButton(editorWrapper, "◌̻"), gbc);
 			gbc.gridy++;
-			kbDiacritics.add(new KeyboardButton(rawEditor, "◌̃"), gbc);
+			kbDiacritics.add(new KeyboardButton(editorWrapper, "◌̃"), gbc);
 			gbc.gridy++;
-			kbDiacritics.add(new KeyboardButton(rawEditor, "◌ⁿ"), gbc);
+			kbDiacritics.add(new KeyboardButton(editorWrapper, "◌ⁿ"), gbc);
 			gbc.gridy++;
-			kbDiacritics.add(new KeyboardButton(rawEditor, "◌ˡ"), gbc);
+			kbDiacritics.add(new KeyboardButton(editorWrapper, "◌ˡ"), gbc);
 			gbc.gridy++;
-			kbDiacritics.add(new KeyboardButton(rawEditor, "◌̚"), gbc);
+			kbDiacritics.add(new KeyboardButton(editorWrapper, "◌̚"), gbc);
 		}
 		{
 			gbc.gridx++;
@@ -628,9 +624,5 @@ public class IpaKeyboard extends JTabbedPane {
 		}
 		scrDiacritics = new JScrollPane(kbDiacritics);
 		addTab("Diacritics", scrDiacritics);
-	}
-	
-	public void setRawEditor(RawEditor re) {
-		this.rawEditor = re;
 	}
 }

@@ -1,0 +1,406 @@
+{
+	"p": {
+		"voiced": false,
+		"place": "bilabial",
+		"manner": "plosive",
+		"number": 101
+	},
+	"b": {
+		"voiced": true,
+		"place": "bilabial",
+		"manner": "plosive",
+		"number": 102
+	},
+	"t̪": {
+		"voiced": false,
+		"place": "dental",
+		"manner": "plosive",
+		"escape": "t\\dt"
+	},
+	"t": {
+		"voiced": false,
+		"place": "alveolar",
+		"manner": "plosive"
+	},
+	"t̠": {
+		"voiced": false,
+		"place": "post-alveolar",
+		"manner": "plosive",
+		"escape": "t\\pa"
+	},
+	"d̪": {
+		"voiced": true,
+		"place": "dental",
+		"manner": "plosive",
+		"escape": "d\\dt"
+	},
+	"d": {
+		"voiced": true,
+		"place": "alveolar",
+		"manner": "plosive",
+		"number": 104
+	},
+	"d̠": {
+		"voiced": true,
+		"place": "post-alveolar",
+		"manner": "plosive",
+		"escape": "d\\pa"
+	},
+	"ʈ": {
+		"voiced": false,
+		"place": "retroflex",
+		"manner": "plosive",
+		"number": 105
+	},
+	"ɖ": {
+		"voiced": true,
+		"place": "retroflex",
+		"manner": "plosive",
+		"number": 106
+	},
+	"c": {
+		"voiced": false,
+		"place": "palatal",
+		"manner": "plosive"
+	},
+	"ɟ": {
+		"voiced": true,
+		"place": "palatal",
+		"manner": "plosive"
+	},
+	"k": {
+		"voiced": false,
+		"place": "velar",
+		"manner": "plosive"
+	},
+	"g": {
+		"voiced": true,
+		"place": "velar",
+		"manner": "plosive"
+	},
+	"q": {
+		"voiced": false,
+		"place": "uvular",
+		"manner": "plosive"
+	},
+	"ɢ": {
+		"voiced": true,
+		"place": "uvular",
+		"manner": "plosive"
+	},
+	"ʔ": {
+		"voiced": false,
+		"place": "glottal",
+		"manner": "plosive"
+	},
+	
+	"m": {
+		"voiced": true,
+		"place": "bilabial",
+		"manner": "nasal"
+	},
+	"ɱ": {
+		"voiced": true,
+		"place": "labio-dental",
+		"manner": "nasal"
+	},
+	"n̪": {
+		"voiced": true,
+		"place": "dental",
+		"manner": "nasal",
+		"escape": "n\\dt"
+	},
+	"n": {
+		"voiced": true,
+		"place": "alveolar",
+		"manner": "nasal"
+	},
+	"n̠": {
+		"voiced": true,
+		"place": "post-alveolar",
+		"manner": "nasal",
+		"escape": "n\\pa"
+	},
+	"ɳ": {
+		"voiced": true,
+		"place": "retroflex",
+		"manner": "nasal",
+		"escape": "n\\rx"
+	},
+	"ɲ": {
+		"voiced": true,
+		"place": "palatal",
+		"manner": "nasal",
+		"escape": "n\\pl"
+	},
+	"ɴ": {
+		"voiced": true,
+		"place": "vealar",
+		"manner": "nasal",
+		"escape": "n\\vl"
+	},
+	
+	"ʙ": {
+		"voiced": true,
+		"place": "bilabial",
+		"manner": "trill",
+		"escape": "n\\vl"
+	},
+	"r̪": {
+		"voiced": true,
+		"place": "dental",
+		"manner": "trill",
+		"escape": "r\\dt"
+	},
+	"r": {
+		"voiced": true,
+		"place": "alveolar",
+		"manner": "trill"
+	},
+	"r̠": {
+		"voiced": true,
+		"place": "post-alveolar",
+		"manner": "trill",
+		"escape": "r\\pa"
+	},
+	"ʀ": {
+		"voiced": true,
+		"place": "uvular",
+		"manner": "trill"
+	},
+	
+	"ⱱ": {
+		"voiced": true,
+		"place": "labio-dental",
+		"manner": "tap"
+	},
+	"ɾ̪": {
+		"voiced": true,
+		"place": "dental",
+		"manner": "tap"
+	},
+	"ɾ": {
+		"voiced": true,
+		"place": "alveolar",
+		"manner": "tap"
+	},
+	"ɾ̠": {
+		"voiced": true,
+		"place": "post-alveolar",
+		"manner": "tap"
+	},
+	"ɽ": {
+		"voiced": true,
+		"place": "retroflex",
+		"manner": "tap"
+	},
+	
+	"ɸ": {
+		"voiced": false,
+		"place": "bilabial",
+		"manner": "fricative"
+	},
+	"β": {
+		"voiced": true,
+		"place": "bilabial",
+		"manner": "fricative"
+	},
+	"f": {
+		"voiced": false,
+		"place": "labio-dental",
+		"manner": "fricative"
+	},
+	"v": {
+		"voiced": true,
+		"place": "labio-dental",
+		"manner": "fricative"
+	},
+	"θ": {
+		"voiced": false,
+		"place": "dental",
+		"manner": "fricative"
+	},
+	"ð": {
+		"voiced": true,
+		"place": "dental",
+		"manner": "fricative"
+	},
+	"s": {
+		"voiced": false,
+		"place": "alveolar",
+		"manner": "fricative"
+	},
+	"z": {
+		"voiced": true,
+		"place": "alveolar",
+		"manner": "fricative"
+	},
+	"ʃ": {
+		"voiced": false,
+		"place": "post-alveolar",
+		"manner": "fricative"
+	},
+	"ʒ": {
+		"voiced": true,
+		"place": "post-alveolar",
+		"manner": "fricative"
+	},
+	"ʂ": {
+		"voiced": false,
+		"place": "retroflex",
+		"manner": "fricative"
+	},
+	"ʐ": {
+		"voiced": true,
+		"place": "retroflex",
+		"manner": "fricative"
+	},
+	"ç": {
+		"voiced": false,
+		"place": "palatal",
+		"manner": "fricative"
+	},
+	"ʝ": {
+		"voiced": true,
+		"place": "palatal",
+		"manner": "fricative"
+	},
+	"x": {
+		"voiced": false,
+		"place": "velar",
+		"manner": "fricative"
+	},
+	"ɣ": {
+		"voiced": true,
+		"place": "velar",
+		"manner": "fricative"
+	},
+	"χ": {
+		"voiced": false,
+		"place": "uvular",
+		"manner": "fricative"
+	},
+	"ʁ": {
+		"voiced": true,
+		"place": "uvular",
+		"manner": "fricative"
+	},
+	"ħ": {
+		"voiced": false,
+		"place": "pharyngeal",
+		"manner": "fricative"
+	},
+	"ʕ": {
+		"voiced": true,
+		"place": "pharyngeal",
+		"manner": "fricative"
+	},
+	"h": {
+		"voiced": false,
+		"place": "glottal",
+		"manner": "fricative"
+	},
+	"ɦ": {
+		"voiced": true,
+		"place": "glottal",
+		"manner": "fricative"
+	},
+	
+	"ɬ̪": {
+		"voiced": false,
+		"place": "dental",
+		"manner": "lateral fricative"
+	},
+	"ɬ": {
+		"voiced": false,
+		"place": "alveolar",
+		"manner": "lateral fricative"
+	},
+	"ɬ̠": {
+		"voiced": false,
+		"place": "post-alveolar",
+		"manner": "lateral fricative"
+	},
+	"ɮ̪": {
+		"voiced": true,
+		"place": "dental",
+		"manner": "lateral fricative"
+	},
+	"ɮ": {
+		"voiced": true,
+		"place": "alveolar",
+		"manner": "lateral fricative"
+	},
+	"ɮ̠": {
+		"voiced": true,
+		"place": "post-alveolar",
+		"manner": "lateral fricative"
+	},
+	
+	"ʋ": {
+		"voiced": true,
+		"place": "labio-dental",
+		"manner": "approximant"
+	},
+	"ɹ̪": {
+		"voiced": true,
+		"place": "dental",
+		"manner": "approximant"
+	},
+	"ɹ": {
+		"voiced": true,
+		"place": "alveolar",
+		"manner": "approximant"
+	},
+	"ɹ̠": {
+		"voiced": true,
+		"place": "post-alveolar",
+		"manner": "approximant"
+	},
+	"ɻ": {
+		"voiced": true,
+		"place": "retroflex",
+		"manner": "approximant"
+	},
+	"j": {
+		"voiced": true,
+		"place": "palatal",
+		"manner": "approximant"
+	},
+	"ɰ": {
+		"voiced": true,
+		"place": "velar",
+		"manner": "approximant"
+	},
+	
+	"l̪": {
+		"voiced": true,
+		"place": "dental",
+		"manner": "lateral approximant"
+	},
+	"l": {
+		"voiced": true,
+		"place": "alveolar",
+		"manner": "lateral approximant"
+	},
+	"l̠": {
+		"voiced": true,
+		"place": "post-alveolar",
+		"manner": "lateral approximant"
+	},
+	"ɭ": {
+		"voiced": true,
+		"place": "retroflex",
+		"manner": "lateral approximant"
+	},
+	"ʎ": {
+		"voiced": true,
+		"place": "palatal",
+		"manner": "lateral approximant"
+	},
+	"ʟ": {
+		"voiced": true,
+		"place": "velar",
+		"manner": "lateral approximant"
+	}
+}

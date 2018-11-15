@@ -36,7 +36,7 @@ public class MainWindow extends JFrame {
 		
 		ftv = new FileTreeViewer();
 		editor = new EditorWrapper();
-		ipaKeyboard = new IpaKeyboard();
+		ipaKeyboard = new IpaKeyboard(editor);
 		
 		editKbWrapper = new JSplitPane(JSplitPane.VERTICAL_SPLIT, editor, ipaKeyboard);
 		editKbWrapper.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_S, InputEvent.CTRL_DOWN_MASK), "save");

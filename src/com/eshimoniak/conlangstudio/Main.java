@@ -14,7 +14,6 @@ import javax.swing.UIManager;
 import javax.swing.filechooser.FileFilter;
 
 import com.eshimoniak.conlangstudio.ui.MainWindow;
-import com.eshimoniak.conlangstudio.ui.panels.Editor;
 
 public class Main {
 	public static File projectRoot;
@@ -33,6 +32,12 @@ public class Main {
 		int returnVal = jfc.showOpenDialog(null);
 		if (returnVal == jfc.APPROVE_OPTION) {
 			projectRoot = jfc.getSelectedFile();
+			try {
+				MarkdownExtensions.init();
+			} catch (IOException e) {
+				JOptionPane.showMessageDialog(null, "Unable to markdown extensions", "Interal ERror", JOptionPane.ERROR_MESSAGE);
+				e.printStackTrace();
+			}
 			window = new MainWindow();
 		}
 	}

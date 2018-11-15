@@ -18,6 +18,7 @@ import org.commonmark.parser.Parser;
 import org.commonmark.renderer.html.HtmlRenderer;
 
 import com.eshimoniak.conlangstudio.Main;
+import com.eshimoniak.conlangstudio.MarkdownExtensions;
 
 public class Editor extends JTabbedPane {
 	private RawEditor rawEditor;
@@ -39,7 +40,7 @@ public class Editor extends JTabbedPane {
 				if (parent.getSelectedIndex() == 1) {
 					List<Extension> extensions = Arrays.asList(TablesExtension.create(), AutolinkExtension.create(), StrikethroughExtension.create(), InsExtension.create());
 					Parser parser = Parser.builder().extensions(extensions).build();
-					Node document = parser.parse(rawEditor.getText());
+					Node document = parser.parse(MarkdownExtensions.parseMarkdownExtensions(rawEditor.getText()));
 					HtmlRenderer renderer = HtmlRenderer.builder().extensions(extensions).build();
 					
 					htmlViewer.setText(renderer.render(document));
