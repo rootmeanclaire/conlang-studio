@@ -13,6 +13,10 @@ import com.eshimoniak.conlangstudio.ui.labels.PaddedLabel;
 import com.eshimoniak.conlangstudio.ui.labels.TableLabel;
 import com.eshimoniak.conlangstudio.ui.panels.editor.EditorWrapper;
 
+/**
+ * A sheet of IPA symbol pasting buttons
+ * @author Evan Shimoniak
+**/
 public class IpaKeyboard extends JTabbedPane {
 	private JPanel kbVowels, kbPcons, kbNPcons, kbTones, kbDiacritics;
 	private JScrollPane scrVowels, scrPcons, scrNPcons, scrTones, scrDiacritics;

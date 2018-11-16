@@ -8,6 +8,10 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 
+/**
+ * A tab with a close button
+ * @author Evan Shimoniak
+**/
 public class CloseableTab extends JPanel {
 	private JLabel label;
 	private JButton closeButton;

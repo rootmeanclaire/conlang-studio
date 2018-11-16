@@ -13,6 +13,10 @@ import com.eshimoniak.conlangstudio.Main;
 import com.eshimoniak.conlangstudio.Util;
 import com.eshimoniak.conlangstudio.ui.panels.FileTreeViewer;
 
+/**
+ * A right click menu for a FileTreeViewer
+ * @author Evan Shimoniak
+**/
 public class FileTreePopup extends JPopupMenu {
 	private JMenuItem miNewFile = null;
 	private JMenuItem miNewDir = null;

@@ -16,6 +16,10 @@ import com.eshimoniak.conlangstudio.Main;
 import com.eshimoniak.conlangstudio.Util;
 import com.eshimoniak.conlangstudio.ui.popups.FileTreePopup;
 
+/**
+ * A simple hierarchical file browser
+ * @author Evan Shimoniak
+**/
 public class FileTreeViewer extends JPanel {
 	private JTree tree;
 	private JScrollPane scroller;

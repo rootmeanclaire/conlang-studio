@@ -6,6 +6,10 @@ import javax.swing.JEditorPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
+/**
+ * An HTML rendering pane
+ * @author Evan Shimoniak
+**/
 public class HtmlViewer extends JPanel {
 	private JEditorPane jep;
 	private JScrollPane scroller;

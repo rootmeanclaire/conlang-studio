@@ -9,6 +9,10 @@ import javax.swing.JTextArea;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
+/**
+ * A simple monospaced text editor
+ * @author Evan Shimoniak
+**/
 public class RawEditor extends JPanel {
 	private JScrollPane scroller;
 	private JTextArea textArea;

@@ -3,6 +3,10 @@ package com.eshimoniak.conlangstudio.ui.labels;
 import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 
+/**
+ * A padded JLabel
+ * @author Evan Shimoniak
+**/
 public class PaddedLabel extends JLabel {
 	public PaddedLabel(String text) {
 		super(text);

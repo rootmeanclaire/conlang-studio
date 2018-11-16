@@ -22,6 +22,10 @@ import com.eshimoniak.conlangstudio.MarkdownExtensions;
 import com.eshimoniak.conlangstudio.ui.panels.HtmlViewer;
 import com.eshimoniak.conlangstudio.ui.panels.MarkdownViewer;
 
+/**
+ * A combination of markdown editor and markdown viewer
+ * @author Evan Shimoniak
+**/
 public class Editor extends JTabbedPane {
 	private RawEditor rawEditor;
 	private MarkdownViewer mdViewer;

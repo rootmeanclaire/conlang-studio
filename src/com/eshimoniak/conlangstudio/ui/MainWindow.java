@@ -21,6 +21,10 @@ import com.eshimoniak.conlangstudio.ui.panels.IpaKeyboard;
 import com.eshimoniak.conlangstudio.ui.panels.editor.Editor;
 import com.eshimoniak.conlangstudio.ui.panels.editor.EditorWrapper;
 
+/**
+ * The main window of the program
+ * @author Evan Shimoniak
+**/
 public class MainWindow extends JFrame {
 	private JSplitPane mainWrapper, editKbWrapper;
 	private FileTreeViewer ftv;

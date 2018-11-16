@@ -12,6 +12,10 @@ import java.util.regex.Pattern;
 
 import org.json.JSONObject;
 
+/**
+ * Custom markdown shorthands
+ * @author Evan Shimoniak
+**/
 public class MarkdownExtensions {
 	private static JSONObject pConsData;
 	

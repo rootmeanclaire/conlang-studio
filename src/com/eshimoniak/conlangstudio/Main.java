@@ -15,6 +15,10 @@ import javax.swing.filechooser.FileFilter;
 
 import com.eshimoniak.conlangstudio.ui.MainWindow;
 
+/**
+ * The main coordinating class of the program
+ * @author Evan Shimoniak
+**/
 public class Main {
 	public static final String VERSION = "0.0.0";
 	public static File projectRoot;
