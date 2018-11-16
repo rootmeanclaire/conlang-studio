@@ -23,10 +23,13 @@ public class KeyboardButton extends JButton {
 		addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				RawEditor editor = ((Editor) editorWrapper.getSelectedComponent()).getRawEditor();
-				if (editor != null) {
-					String oldText = editor.getText();
-					editor.setText(oldText.substring(0, editor.getCaretPosition()) + text.replaceAll("◌", "") + oldText.substring(editor.getCaretPosition()));
+				Editor editor = ((Editor) editorWrapper.getSelectedComponent());
+				if (editorWrapper.getSelectedComponent() != null) {
+					RawEditor re = editor.getRawEditor();
+					if (re != null) {
+						String oldText = re.getText();
+						re.setText(oldText.substring(0, re.getCaretPosition()) + text.replaceAll("◌", "") + oldText.substring(re.getCaretPosition()));
+					}
 				}
 			}
 		});

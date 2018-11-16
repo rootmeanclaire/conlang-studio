@@ -14,5 +14,6 @@ public class EditorWrapper extends JTabbedPane {
 	public void addTab(File f) {
 		add(new Editor());
 		setTabComponentAt(getTabCount() - 1, new CloseableTab(f.getName(), this));
+		setSelectedIndex(getTabCount() - 1);
 	}
 }
