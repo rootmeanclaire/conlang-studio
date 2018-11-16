@@ -86,6 +86,7 @@ public class MainWindow extends JFrame {
 			}
 		});
 		mHelp.add(miAbout);
+		mb.add(mHelp);
 		
 		setJMenuBar(mb);
 		validate();
