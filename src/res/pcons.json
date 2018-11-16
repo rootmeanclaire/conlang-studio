@@ -3,141 +3,161 @@
 		"voiced": false,
 		"place": "bilabial",
 		"manner": "plosive",
-		"number": 101
+		"number": [101],
+		"xsampa": "p"
 	},
 	"b": {
 		"voiced": true,
 		"place": "bilabial",
 		"manner": "plosive",
-		"number": 102
+		"number": [102],
+		"xsampa": "b"
 	},
 	"t̪": {
 		"voiced": false,
 		"place": "dental",
 		"manner": "plosive",
-		"escape": "t\\dt"
+		"xsampa": "t_d"
 	},
 	"t": {
 		"voiced": false,
 		"place": "alveolar",
-		"manner": "plosive"
+		"manner": "plosive",
+		"number": [103],
+		"xsampa": "t"
 	},
 	"t̠": {
 		"voiced": false,
 		"place": "post-alveolar",
-		"manner": "plosive",
-		"escape": "t\\pa"
+		"manner": "plosive"
 	},
 	"d̪": {
 		"voiced": true,
 		"place": "dental",
 		"manner": "plosive",
-		"escape": "d\\dt"
+		"xsampa": "d_d"
 	},
 	"d": {
 		"voiced": true,
 		"place": "alveolar",
 		"manner": "plosive",
-		"number": 104
+		"number": [104],
+		"xsampa": "d"
 	},
 	"d̠": {
 		"voiced": true,
 		"place": "post-alveolar",
-		"manner": "plosive",
-		"escape": "d\\pa"
+		"manner": "plosive"
 	},
 	"ʈ": {
 		"voiced": false,
 		"place": "retroflex",
 		"manner": "plosive",
-		"number": 105
+		"number": [105],
+		"xsampa": "t`"
 	},
 	"ɖ": {
 		"voiced": true,
 		"place": "retroflex",
 		"manner": "plosive",
-		"number": 106
+		"number": [106],
+		"xsampa": "d`"
 	},
 	"c": {
 		"voiced": false,
 		"place": "palatal",
-		"manner": "plosive"
+		"manner": "plosive",
+		"xsampa": "c"
 	},
 	"ɟ": {
 		"voiced": true,
 		"place": "palatal",
-		"manner": "plosive"
+		"manner": "plosive",
+		"xsampa": "J\\"
 	},
 	"k": {
 		"voiced": false,
 		"place": "velar",
-		"manner": "plosive"
+		"manner": "plosive",
+		"xsampa": "k"
 	},
 	"g": {
 		"voiced": true,
 		"place": "velar",
-		"manner": "plosive"
+		"manner": "plosive",
+		"xsampa": "g"
 	},
 	"q": {
 		"voiced": false,
 		"place": "uvular",
-		"manner": "plosive"
+		"manner": "plosive",
+		"xsampa": "q"
 	},
 	"ɢ": {
 		"voiced": true,
 		"place": "uvular",
-		"manner": "plosive"
+		"manner": "plosive",
+		"xsampa": "G\\"
 	},
 	"ʔ": {
 		"voiced": false,
 		"place": "glottal",
-		"manner": "plosive"
+		"manner": "plosive",
+		"xsampa": "?"
 	},
 	
 	"m": {
 		"voiced": true,
 		"place": "bilabial",
-		"manner": "nasal"
+		"manner": "nasal",
+		"xsampa": "m"
 	},
 	"ɱ": {
 		"voiced": true,
 		"place": "labio-dental",
-		"manner": "nasal"
+		"manner": "nasal",
+		"xsampa": "F"
 	},
 	"n̪": {
 		"voiced": true,
 		"place": "dental",
 		"manner": "nasal",
-		"escape": "n\\dt"
+		"xsampa": "n_d"
 	},
 	"n": {
 		"voiced": true,
 		"place": "alveolar",
-		"manner": "nasal"
+		"manner": "nasal",
+		"xsampa": "n"
 	},
 	"n̠": {
 		"voiced": true,
 		"place": "post-alveolar",
-		"manner": "nasal",
-		"escape": "n\\pa"
+		"manner": "nasal"
 	},
 	"ɳ": {
 		"voiced": true,
 		"place": "retroflex",
 		"manner": "nasal",
-		"escape": "n\\rx"
+		"xsampa": "n`"
 	},
 	"ɲ": {
 		"voiced": true,
 		"place": "palatal",
 		"manner": "nasal",
-		"escape": "n\\pl"
+		"xsampa": "J"
+	},
+	"ŋ": {
+		"voiced": true,
+		"place": "velar",
+		"manner": "nasal",
+		"xsampa": "N"
 	},
 	"ɴ": {
 		"voiced": true,
-		"place": "vealar",
+		"place": "uvular",
 		"manner": "nasal",
-		"escape": "n\\vl"
+		"xsampa": "N\\"
 	},
 	
 	"ʙ": {

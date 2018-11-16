@@ -175,6 +175,8 @@ public class IpaKeyboard extends JTabbedPane {
 			gbc.gridx++;
 			kbPcons.add(new ButtonPair(editorWrapper, null, "ɲ"), gbc);
 			gbc.gridx++;
+			kbPcons.add(new ButtonPair(editorWrapper, null, "ŋ"), gbc);
+			gbc.gridx++;
 			kbPcons.add(new ButtonPair(editorWrapper, null, "ɴ"), gbc);
 		}
 		{
