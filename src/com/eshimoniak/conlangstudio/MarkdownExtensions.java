@@ -1,10 +1,10 @@
 package com.eshimoniak.conlangstudio;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -21,12 +21,13 @@ public class MarkdownExtensions {
 	
 	public static void init() throws IOException {
 		InputStream in = MarkdownExtensions.class.getClassLoader().getResourceAsStream("res/pcons.json"); 
-		BufferedReader reader = new BufferedReader(new InputStreamReader(in));
+		BufferedReader reader = new BufferedReader(new InputStreamReader(in, Charset.forName("UTF-8")));
 		String ln = null;
 		StringBuilder sb = new StringBuilder();
 		
 		while ((ln = reader.readLine()) != null) {
 			sb.append(ln);
+			sb.append('\n');
 		}
 		pConsData = new JSONObject(sb.toString());
 	}
