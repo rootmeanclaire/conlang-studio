@@ -20,7 +20,7 @@ import com.eshimoniak.conlangstudio.ui.MainWindow;
  * @author Evan Shimoniak
 **/
 public class Main {
-	public static final String VERSION = "0.1.0";
+	public static final String VERSION = "0.1.1";
 	public static File projectRoot;
 	public static File currFile = null;
 	private static MainWindow window;
@@ -71,6 +71,7 @@ public class Main {
 			
 			window.getEditorWrapper().addTab(f);
 			window.getCurrentEditor().getRawEditor().loadFile(sb.toString().replaceAll("$\\n", ""));
+			window.getCurrentEditor().getRawEditor().assertMatchesFile(true);
 		}
 	}
 	

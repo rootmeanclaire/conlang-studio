@@ -20,7 +20,7 @@ public class MarkdownExtensions {
 	private static JSONObject pConsData;
 	
 	public static void init() throws IOException {
-		InputStream in = MarkdownExtensions.class.getClassLoader().getResourceAsStream("res" + File.separatorChar + "pcons.json"); 
+		InputStream in = MarkdownExtensions.class.getClassLoader().getResourceAsStream("res/pcons.json"); 
 		BufferedReader reader = new BufferedReader(new InputStreamReader(in));
 		String ln = null;
 		StringBuilder sb = new StringBuilder();
