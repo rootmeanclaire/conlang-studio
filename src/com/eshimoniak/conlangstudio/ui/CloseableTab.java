@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 
@@ -23,7 +24,9 @@ public class CloseableTab extends JPanel {
 		closeButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				parent.remove(parent.indexOfTabComponent(CloseableTab.this));
+				if (JOptionPane.showConfirmDialog(parent, "Are you sure you want to close without saving \"" + title + "\"?") == JOptionPane.YES_OPTION) {
+					parent.remove(parent.indexOfTabComponent(CloseableTab.this));
+				}
 			}
 		});
 		add(closeButton);

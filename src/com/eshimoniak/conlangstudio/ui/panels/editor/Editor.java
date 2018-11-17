@@ -69,4 +69,8 @@ public class Editor extends JTabbedPane {
 	public RawEditor getRawEditor() {
 		return rawEditor;
 	}
+	
+	public boolean isSaved() {
+		return rawEditor.matchesFile();
+	}
 }

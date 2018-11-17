@@ -20,7 +20,7 @@ import com.eshimoniak.conlangstudio.ui.MainWindow;
  * @author Evan Shimoniak
 **/
 public class Main {
-	public static final String VERSION = "0.0.0";
+	public static final String VERSION = "0.1.0";
 	public static File projectRoot;
 	public static File currFile = null;
 	private static MainWindow window;
@@ -40,11 +40,15 @@ public class Main {
 			try {
 				MarkdownExtensions.init();
 			} catch (IOException e) {
-				JOptionPane.showMessageDialog(null, "Unable to markdown extensions", "Interal ERror", JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(null, "Unable to markdown extensions", "Interal Error", JOptionPane.ERROR_MESSAGE);
 				e.printStackTrace();
 			}
 			window = new MainWindow();
 		}
+	}
+	
+	public static void exit(int code) {
+		System.exit(code);
 	}
 	
 	public static void setCurrFile(File f) {

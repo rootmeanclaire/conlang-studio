@@ -16,4 +16,14 @@ public class EditorWrapper extends JTabbedPane {
 		setTabComponentAt(getTabCount() - 1, new CloseableTab(f.getName(), this));
 		setSelectedIndex(getTabCount() - 1);
 	}
+	
+	public boolean hasUnsavedFiles() {
+		for (int i = 0; i < getTabCount(); i++) {
+			if (!((Editor) getComponentAt(i)).isSaved()) {
+				return true;
+			}
+		}
+		
+		return false;
+	}
 }

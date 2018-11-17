@@ -4,6 +4,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 import javax.swing.AbstractAction;
 import javax.swing.JComponent;
@@ -39,7 +41,14 @@ public class MainWindow extends JFrame {
 	
 	public MainWindow() {
 		super("Conlang Studio");
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+		addWindowListener(new WindowAdapter(){
+			public void windowClosing(WindowEvent e){
+				if (!editor.hasUnsavedFiles() || JOptionPane.showConfirmDialog(MainWindow.this, "Are you sure you want to close; you have unsaved files") == JOptionPane.YES_OPTION) {
+					Main.exit(0);
+				}
+			}
+		});
 		
 		ftv = new FileTreeViewer();
 		editor = new EditorWrapper();
