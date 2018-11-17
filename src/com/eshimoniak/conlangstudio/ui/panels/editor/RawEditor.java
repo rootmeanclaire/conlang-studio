@@ -1,18 +1,11 @@
 package com.eshimoniak.conlangstudio.ui.panels.editor;
 
 import java.awt.BorderLayout;
-import java.awt.Font;
-import java.awt.Graphics;
 
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
-import javax.swing.event.UndoableEditEvent;
-import javax.swing.event.UndoableEditListener;
-import javax.swing.text.Document;
-import javax.swing.undo.UndoManager;
 
 /**
  * A simple monospaced text editor
@@ -68,5 +61,8 @@ public class RawEditor extends JPanel {
 	public void loadFile(String fileContents) {
 		matchesFile = true;
 		textArea.setText(fileContents);
+	}
+	public void focus() {
+		textArea.requestFocus();
 	}
 }

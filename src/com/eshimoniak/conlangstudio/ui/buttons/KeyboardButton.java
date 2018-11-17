@@ -29,6 +29,7 @@ public class KeyboardButton extends JButton {
 					if (re != null) {
 						String oldText = re.getText();
 						re.setText(oldText.substring(0, re.getCaretPosition()) + text.replaceAll("◌", "") + oldText.substring(re.getCaretPosition()));
+						re.focus();
 					}
 				}
 			}
