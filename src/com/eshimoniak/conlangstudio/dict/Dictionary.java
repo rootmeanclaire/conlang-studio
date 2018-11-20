@@ -156,6 +156,9 @@ public class Dictionary {
 			entries.put(entry[0], Arrays.copyOfRange(entry, 1, entry.length));
 		}
 	}
+	public void removeEntry(String key) {
+		entries.remove(key);
+	}
 	public Map<String, String> getEntry(String key) {
 		Map<String, String> props = new HashMap<>();
 		String[] storedProps = entries.get(key);

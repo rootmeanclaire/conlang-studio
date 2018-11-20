@@ -1,11 +1,15 @@
 package com.eshimoniak.conlangstudio.ui.panels.editor.dict;
 
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 import com.eshimoniak.conlangstudio.dict.Dictionary;
+import com.eshimoniak.conlangstudio.ui.popups.DictionaryTablePopup;
 
 @SuppressWarnings("serial")
 public class DictionaryViewer extends JPanel {
@@ -17,6 +21,14 @@ public class DictionaryViewer extends JPanel {
 		dtm = new DefaultTableModel(dict.getHeaders(), dict.numEntries());
 		table.setModel(dtm);
 		table.setRowHeight(25);
+		table.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent e) {
+				if (e.isPopupTrigger()) {
+					new DictionaryTablePopup((DictionaryEditor) getParent(), e.getY() / 25).show(e.getComponent(), e.getX(), e.getY());
+				}
+			}
+		});
 		setData(dict.toFileString());
 		add(new JScrollPane(table));
 	}
