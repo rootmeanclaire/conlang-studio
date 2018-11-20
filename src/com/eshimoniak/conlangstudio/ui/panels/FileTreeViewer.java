@@ -14,12 +14,18 @@ import javax.swing.tree.TreePath;
 
 import com.eshimoniak.conlangstudio.Main;
 import com.eshimoniak.conlangstudio.Util;
+import com.eshimoniak.conlangstudio.ui.CloseableTab;
+import com.eshimoniak.conlangstudio.ui.panels.editor.EditorWrapper;
+import com.eshimoniak.conlangstudio.ui.panels.editor.FileEditor;
+import com.eshimoniak.conlangstudio.ui.panels.editor.dict.DictionaryEditor;
+import com.eshimoniak.conlangstudio.ui.panels.editor.markdown.MarkdownEditor;
 import com.eshimoniak.conlangstudio.ui.popups.FileTreePopup;
 
 /**
  * A simple hierarchical file browser
  * @author Evan Shimoniak
 **/
+@SuppressWarnings("serial")
 public class FileTreeViewer extends JPanel {
 	private JTree tree;
 	private JScrollPane scroller;
@@ -40,13 +46,28 @@ public class FileTreeViewer extends JPanel {
 					File f = new File(Main.projectRoot.getParent());
 					for (int i = 0; i < tree.getSelectionPath().getPath().length; i++) {
 						f = new File(f, path.getPathComponent(i).toString());
-					}					
+					}
 					
 					//Do something with clicked file
 					if (!e.isPopupTrigger()) {
 						if(e.getClickCount() == 1) {
 							//TODO Single click
 						} else if(e.getClickCount() == 2) {
+							FileEditor editor;
+							EditorWrapper ew = Main.getWindow().getEditorWrapper();
+							
+							if (f.getName().endsWith(".csv")) {
+								editor = new DictionaryEditor(f);
+								ew.addTab(f.getName(), editor);
+								ew.setSelectedIndex(ew.getTabCount() - 1);
+								ew.setTabComponentAt(ew.getSelectedIndex(), new CloseableTab(f.getName(), ew, (FileEditor) ew.getSelectedComponent()));
+							} else if (f.getName().endsWith(".md") || true) {
+								editor = new MarkdownEditor(f);
+								ew.addTab(f.getName(), editor);
+								ew.setSelectedIndex(ew.getTabCount() - 1);
+								ew.setTabComponentAt(ew.getSelectedIndex(), new CloseableTab(f.getName(), ew, (FileEditor) ew.getSelectedComponent()));
+							}
+							
 							Main.setCurrFile(f);
 						}
 					} else if (e.isPopupTrigger()) {

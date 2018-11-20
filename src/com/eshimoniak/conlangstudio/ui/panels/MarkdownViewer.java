@@ -8,6 +8,7 @@ import javax.swing.JTextArea;
  * A viewer of standard markdown
  * @author Evan Shimoniak
 **/
+@SuppressWarnings("serial")
 public class MarkdownViewer extends JTextArea {
 	public MarkdownViewer() {
 		setEditable(false);

@@ -20,13 +20,14 @@ import javax.swing.KeyStroke;
 import com.eshimoniak.conlangstudio.Main;
 import com.eshimoniak.conlangstudio.ui.panels.FileTreeViewer;
 import com.eshimoniak.conlangstudio.ui.panels.IpaKeyboard;
-import com.eshimoniak.conlangstudio.ui.panels.editor.Editor;
 import com.eshimoniak.conlangstudio.ui.panels.editor.EditorWrapper;
+import com.eshimoniak.conlangstudio.ui.panels.editor.FileEditor;
 
 /**
  * The main window of the program
  * @author Evan Shimoniak
 **/
+@SuppressWarnings("serial")
 public class MainWindow extends JFrame {
 	private JSplitPane mainWrapper, editKbWrapper;
 	private FileTreeViewer ftv;
@@ -105,8 +106,8 @@ public class MainWindow extends JFrame {
 	public EditorWrapper getEditorWrapper() {
 		return editor;
 	}
-	public Editor getCurrentEditor() {
-		return (Editor) editor.getSelectedComponent();
+	public FileEditor getCurrentEditor() {
+		return (FileEditor) editor.getSelectedComponent();
 	}
 	public FileTreeViewer getFileTreeViewer() {
 		return ftv;

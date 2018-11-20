@@ -1,4 +1,4 @@
-package com.eshimoniak.conlangstudio.ui.panels.editor;
+package com.eshimoniak.conlangstudio.ui.panels.editor.markdown;
 
 import java.awt.BorderLayout;
 
@@ -7,14 +7,16 @@ import javax.swing.JScrollPane;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
+import com.eshimoniak.conlangstudio.ui.panels.editor.FileEditor;
+
 /**
  * A simple monospaced text editor
  * @author Evan Shimoniak
 **/
+@SuppressWarnings("serial")
 public class RawEditor extends JPanel {
 	private JScrollPane scroller;
 	private HintingTextArea textArea;
-	private boolean matchesFile = true;
 	
 	public RawEditor() {
 		super(new BorderLayout());
@@ -22,17 +24,17 @@ public class RawEditor extends JPanel {
 		textArea.getDocument().addDocumentListener(new DocumentListener() {
 			@Override
 			public void removeUpdate(DocumentEvent e) {
-				matchesFile = false;
+				((FileEditor) getParent()).assertMatchesFile(false);
 			}
 			
 			@Override
 			public void insertUpdate(DocumentEvent e) {
-				matchesFile = false;
+				((FileEditor) getParent()).assertMatchesFile(false);
 			}
 			
 			@Override
 			public void changedUpdate(DocumentEvent e) {
-				matchesFile = false;
+				((FileEditor) getParent()).assertMatchesFile(false);
 			}
 		});
 		scroller = new JScrollPane(textArea);
@@ -41,7 +43,7 @@ public class RawEditor extends JPanel {
 	}
 	
 	public void assertMatchesFile(boolean val) {
-		matchesFile = val;
+		((FileEditor) getParent()).assertMatchesFile(val);
 	}
 	public void setText(String str) {
 		textArea.setText(str);
@@ -52,14 +54,8 @@ public class RawEditor extends JPanel {
 	public int getCaretPosition() {
 		return textArea.getCaretPosition();
 	}
-	public boolean matchesFile() {
-		return matchesFile;
-	}
-	public void matchesFile(boolean matchesFile) {
-		this.matchesFile = matchesFile;
-	}
 	public void loadFile(String fileContents) {
-		matchesFile = true;
+		((FileEditor) getParent()).assertMatchesFile(true);
 		textArea.setText(fileContents);
 	}
 	public void focus() {

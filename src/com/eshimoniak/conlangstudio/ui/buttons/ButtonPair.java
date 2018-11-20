@@ -11,6 +11,7 @@ import com.eshimoniak.conlangstudio.ui.panels.editor.EditorWrapper;
  * A "pair" of two or more related buttons
  * @author Evan Shimoniak
 **/
+@SuppressWarnings("serial")
 public class ButtonPair extends JPanel {
 	/**
 	 * @param editor The editor to modify when one of the buttons is pushed

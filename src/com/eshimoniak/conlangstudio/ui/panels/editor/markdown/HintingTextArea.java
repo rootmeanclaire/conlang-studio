@@ -1,8 +1,6 @@
-package com.eshimoniak.conlangstudio.ui.panels.editor;
+package com.eshimoniak.conlangstudio.ui.panels.editor.markdown;
 
-import java.awt.Color;
 import java.awt.Font;
-import java.awt.Graphics;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
@@ -19,6 +17,7 @@ import javax.swing.text.Document;
 import javax.swing.undo.CannotUndoException;
 import javax.swing.undo.UndoManager;
 
+@SuppressWarnings("serial")
 public class HintingTextArea extends JTextArea {
 	private UndoManager undoManager;
 	

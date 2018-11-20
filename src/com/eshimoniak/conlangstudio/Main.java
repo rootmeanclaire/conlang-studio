@@ -1,12 +1,9 @@
 package com.eshimoniak.conlangstudio;
 
-import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStreamReader;
 
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
@@ -33,6 +30,7 @@ public class Main {
 			JOptionPane.showMessageDialog(null, "Unable to load system theme", "UI Error", JOptionPane.ERROR_MESSAGE);
 		}
 		JFileChooser jfc = new JFileChooser();
+		jfc.setDialogTitle("Select a workspace");
 		jfc.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
 		int returnVal = jfc.showOpenDialog(null);
 		if (returnVal == JFileChooser.APPROVE_OPTION) {
@@ -52,27 +50,13 @@ public class Main {
 	}
 	
 	public static void setCurrFile(File f) {
-		if (!Util.isDirectory(f)) {
+		if (!Util.isDirectory(f) && f != null) {
 			currFile = f;
-			StringBuilder sb = new StringBuilder();
-			String ln;
-			
-			try {
-				FileInputStream is = new FileInputStream(currFile);
-				BufferedReader in = new BufferedReader(new InputStreamReader(is, "UTF-8"));
-				while ((ln = in.readLine()) != null) {
-					sb.append(ln);
-					sb.append('\n');
-				}
-			} catch (IOException e) {
-				JOptionPane.showMessageDialog(window, "Error reading file", "IO Error", JOptionPane.ERROR_MESSAGE);
-				e.printStackTrace();
-			}
-			
-			window.getEditorWrapper().addTab(f);
-			window.getCurrentEditor().getRawEditor().loadFile(sb.toString().replaceAll("$\\n", ""));
-			window.getCurrentEditor().getRawEditor().assertMatchesFile(true);
 		}
+	}
+	
+	public static MainWindow getWindow() {
+		return window;
 	}
 	
 	public static void saveCurrFile() {
@@ -80,7 +64,7 @@ public class Main {
 			JFileChooser jfc = new JFileChooser();
 			jfc.setCurrentDirectory(Main.projectRoot);
 			jfc.setFileSelectionMode(JFileChooser.FILES_ONLY);
-			jfc.setFileFilter(new FileFilter() {
+			jfc.addChoosableFileFilter(new FileFilter() {
 				@Override
 				public String getDescription() {
 					return "Markdown files";
@@ -95,20 +79,32 @@ public class Main {
 					}
 				}
 			});
+			jfc.addChoosableFileFilter(new FileFilter() {
+				@Override
+				public String getDescription() {
+					return "Dictionary files";
+				}
+				
+				@Override
+				public boolean accept(File f) {
+					if (f.getName().endsWith(".csv")) {
+						return true;
+					} else {
+						return false;
+					}
+				}
+			});
 			if (jfc.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
 				currFile = jfc.getSelectedFile();
-			}
-			if (!currFile.getName().endsWith(".md")) {
-				currFile = new File(currFile.getParentFile().getPath(), currFile.getName() + ".md");
 			}
 		}
 		
 		try {
 			BufferedWriter writer = new BufferedWriter(new FileWriter(currFile));
-			writer.write(window.getCurrentEditor().getRawEditor().getText());
+			writer.write(window.getCurrentEditor().getFileText());
 			writer.close();
 			window.getFileTreeViewer().refreshTree();
-			window.getCurrentEditor().getRawEditor().matchesFile(true);
+			window.getCurrentEditor().assertMatchesFile(true);
 		} catch (IOException e) {
 			JOptionPane.showMessageDialog(window, "Error saving file", "IO Error", JOptionPane.ERROR_MESSAGE);
 			e.printStackTrace();

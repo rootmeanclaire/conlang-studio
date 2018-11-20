@@ -1,4 +1,4 @@
-package com.eshimoniak.conlangstudio.ui.panels.editor;
+package com.eshimoniak.conlangstudio.ui.panels.editor.markdown;
 
 import java.io.File;
 import java.util.Arrays;
@@ -19,22 +19,26 @@ import org.commonmark.renderer.html.HtmlRenderer;
 
 import com.eshimoniak.conlangstudio.Main;
 import com.eshimoniak.conlangstudio.MarkdownExtensions;
+import com.eshimoniak.conlangstudio.Util;
 import com.eshimoniak.conlangstudio.ui.panels.HtmlViewer;
 import com.eshimoniak.conlangstudio.ui.panels.MarkdownViewer;
+import com.eshimoniak.conlangstudio.ui.panels.editor.FileEditor;
 
 /**
  * A combination of markdown editor and markdown viewer
  * @author Evan Shimoniak
 **/
-public class Editor extends JTabbedPane {
+@SuppressWarnings("serial")
+public class MarkdownEditor extends FileEditor {
 	private RawEditor rawEditor;
 	private MarkdownViewer mdViewer;
 	private HtmlViewer htmlViewer;
 	
-	public Editor() {
+	public MarkdownEditor() {
 		this(null);
 	}
-	public Editor(File f) {
+	public MarkdownEditor(File f) {
+		super(f);
 		rawEditor = new RawEditor();
 		addTab("Markdown Editor", rawEditor);
 		mdViewer = new MarkdownViewer();
@@ -62,6 +66,7 @@ public class Editor extends JTabbedPane {
 		addChangeListener(tabChangeListener);
 		setTabPlacement(BOTTOM);
 		if (f != null) {
+			rawEditor.setText(Util.loadFile(f));
 			Main.setCurrFile(f);
 		}
 	}
@@ -69,8 +74,12 @@ public class Editor extends JTabbedPane {
 	public RawEditor getRawEditor() {
 		return rawEditor;
 	}
-	
-	public boolean isSaved() {
-		return rawEditor.matchesFile();
+	@Override
+	public void loadFile(String data) {
+		rawEditor.loadFile(data);
+	}
+	@Override
+	public String getFileText() {
+		return rawEditor.getText();
 	}
 }

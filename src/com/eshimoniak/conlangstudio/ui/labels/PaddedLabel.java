@@ -7,6 +7,7 @@ import javax.swing.JLabel;
  * A padded JLabel
  * @author Evan Shimoniak
 **/
+@SuppressWarnings("serial")
 public class PaddedLabel extends JLabel {
 	public PaddedLabel(String text) {
 		super(text);
