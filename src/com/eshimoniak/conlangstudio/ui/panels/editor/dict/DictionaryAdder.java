@@ -10,16 +10,19 @@ import java.util.List;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 
 @SuppressWarnings("serial")
 public class DictionaryAdder extends JPanel {
 	private List<DictionaryFieldAdder> fields = new ArrayList<>();
+	private JPanel content;
 	private JButton add;
 	private JTextField focusedTextField = null;
 	
 	public DictionaryAdder(String[] headers, DictionaryEditor de) {
-		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+		content = new JPanel();
+		content.setLayout(new BoxLayout(content, BoxLayout.Y_AXIS));
 		for (String header : headers) {
 			DictionaryFieldAdder dfa = new DictionaryFieldAdder(header);
 			dfa.getTextField().addFocusListener(new FocusListener() {
@@ -32,7 +35,7 @@ public class DictionaryAdder extends JPanel {
 				}
 			});
 			fields.add(dfa);
-			add(dfa);
+			content.add(dfa);
 		}
 		add = new JButton("Add Entry");
 		add.addActionListener(new ActionListener() {
@@ -41,7 +44,8 @@ public class DictionaryAdder extends JPanel {
 				de.addEntry(getEntry());
 			}
 		});
-		add(add);
+		content.add(add);
+		add(new JScrollPane(content));
 	}
 	
 	public String[] getEntry() {
