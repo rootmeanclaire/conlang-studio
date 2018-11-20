@@ -4,10 +4,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
-import javax.swing.table.DefaultTableModel;
+import javax.swing.JTextField;
 
 import com.eshimoniak.conlangstudio.ui.panels.editor.EditorWrapper;
 import com.eshimoniak.conlangstudio.ui.panels.editor.FileEditor;
+import com.eshimoniak.conlangstudio.ui.panels.editor.dict.DictionaryAdder;
 import com.eshimoniak.conlangstudio.ui.panels.editor.dict.DictionaryEditor;
 import com.eshimoniak.conlangstudio.ui.panels.editor.dict.DictionaryViewer;
 import com.eshimoniak.conlangstudio.ui.panels.editor.markdown.MarkdownEditor;
@@ -38,9 +39,19 @@ public class KeyboardButton extends JButton {
 							re.focus();
 						}
 					} else if (editor instanceof DictionaryEditor) {
-						DictionaryViewer dv = ((DictionaryEditor) editor).getDictionaryViewer();
-						DefaultTableModel model = dv.getDTModel();
-						model.setValueAt(model.getValueAt(dv.getSelectedRow(), dv.getSelectedColumn()) + text.replaceAll("◌", ""), dv.getSelectedRow(), dv.getSelectedColumn());
+						if (editor.getSelectedComponent() instanceof DictionaryViewer) {
+							DictionaryViewer dv = ((DictionaryEditor) editor).getDictionaryViewer();
+							JTextField textField = (JTextField) dv.getTable().getEditorComponent();
+							String oldText = textField.getText();
+							textField.setText(oldText.substring(0, textField.getCaretPosition()) + text.replaceAll("◌", "") + oldText.substring(textField.getCaretPosition()));
+							textField.grabFocus();
+						} else if (editor.getSelectedComponent() instanceof DictionaryAdder) {
+							DictionaryAdder da = (DictionaryAdder) editor.getSelectedComponent();
+							JTextField textField = da.getFocusedTextField();
+							String oldText = textField.getText();
+							textField.setText(oldText.substring(0, textField.getCaretPosition()) + text.replaceAll("◌", "") + oldText.substring(textField.getCaretPosition()));
+							textField.grabFocus();
+						}
 					}
 				}
 			}

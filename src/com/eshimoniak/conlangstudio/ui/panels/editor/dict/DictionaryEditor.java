@@ -2,8 +2,6 @@ package com.eshimoniak.conlangstudio.ui.panels.editor.dict;
 
 import java.io.File;
 
-import javax.swing.JScrollPane;
-
 import com.eshimoniak.conlangstudio.Main;
 import com.eshimoniak.conlangstudio.dict.Dictionary;
 import com.eshimoniak.conlangstudio.ui.panels.editor.FileEditor;
@@ -16,7 +14,6 @@ public class DictionaryEditor extends FileEditor {
 	private DictionaryViewer dv;
 	private DictionaryAdder da;
 	private Dictionary dict;
-	private JScrollPane scrollDv, scrollDa;
 	
 	public DictionaryEditor(File f, String... headers) {
 		super(f);
@@ -31,11 +28,9 @@ public class DictionaryEditor extends FileEditor {
 	private void init(File f) {
 		setTabPlacement(BOTTOM);
 		dv = new DictionaryViewer(dict);
-		scrollDv = new JScrollPane(dv);
-		addTab("Dictionary Viewer", scrollDv);
+		addTab("Dictionary Viewer", dv);
 		da = new DictionaryAdder(dict.getHeaders(), this);
-		scrollDa = new JScrollPane(da);
-		addTab("New Entry", scrollDa);
+		addTab("New Entry", da);
 		Main.setCurrFile(f);
 	}
 	
@@ -57,5 +52,9 @@ public class DictionaryEditor extends FileEditor {
 	public void addEntry(String[] entry) {
 		dict.addEntry(entry);
 		dv.addEntry(entry);
+	}
+	
+	public DictionaryAdder getDictionaryAdder() {
+		return da;
 	}
 }

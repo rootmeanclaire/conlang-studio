@@ -1,19 +1,36 @@
 package com.eshimoniak.conlangstudio.ui.panels.editor.dict;
 
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 import com.eshimoniak.conlangstudio.dict.Dictionary;
 
 @SuppressWarnings("serial")
-public class DictionaryViewer extends JTable {
+public class DictionaryViewer extends JPanel {
 	private DefaultTableModel dtm;
+	private JTable table;
 	
 	public DictionaryViewer(Dictionary dict) {
+		table = new JTable();
 		dtm = new DefaultTableModel(dict.getHeaders(), dict.numEntries());
-		setModel(dtm);
-		setRowHeight(25);
+		table.setModel(dtm);
+		table.setRowHeight(25);
 		setData(dict.toFileString());
+		add(new JScrollPane(table));
+	}
+	
+	public JTable getTable() {
+		return table;
+	}
+	
+	public int getSelectedRow() {
+		return table.getSelectedRow();
+	}
+	
+	public int getSelectedColumn() {
+		return table.getSelectedColumn();
 	}
 	
 	public void addEntry(String[] entry) {

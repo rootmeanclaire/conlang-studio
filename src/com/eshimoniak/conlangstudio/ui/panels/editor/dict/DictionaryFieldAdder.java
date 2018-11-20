@@ -22,4 +22,12 @@ public class DictionaryFieldAdder extends JPanel {
 	public String getValue() {
 		return input.getText();
 	}
+	
+	public void setValue(String str) {
+		input.setText(str);
+	}
+	
+	public JTextField getTextField() {
+		return input;
+	}
 }
