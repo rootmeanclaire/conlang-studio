@@ -74,8 +74,8 @@ public class FileTreePopup extends JPopupMenu {
 										EditorWrapper ew = Main.getWindow().getEditorWrapper();
 										MarkdownEditor editor = new MarkdownEditor(newFile);
 										ew.addTab(newFile.getName(), editor);
-										ew.setTabComponentAt(ew.getTabCount(), new CloseableTab(newFile.getName(), ew, (FileEditor) ew.getSelectedComponent()));
 										ew.setSelectedIndex(ew.getTabCount() - 1);
+										ew.setTabComponentAt(ew.getTabCount(), new CloseableTab(newFile.getName(), ew, (FileEditor) ew.getSelectedComponent()));
 									} catch (IOException e1) {
 										JOptionPane.showMessageDialog(
 												null,
@@ -108,8 +108,8 @@ public class FileTreePopup extends JPopupMenu {
 												FileEditor editor = new DictionaryEditor(newFile, winSetup.getHeaders());
 												EditorWrapper ew = Main.getWindow().getEditorWrapper();
 												ew.addTab(newFile.getName(), editor);
-												ew.setTabComponentAt(ew.getTabCount() - 1, new CloseableTab(newFile.getName(), ew, (FileEditor) ew.getSelectedComponent()));
 												ew.setSelectedIndex(ew.getTabCount() - 1);
+												ew.setTabComponentAt(ew.getTabCount() - 1, new CloseableTab(newFile.getName(), ew, (FileEditor) ew.getSelectedComponent()));
 											}
 										});
 										ftv.refreshTree();

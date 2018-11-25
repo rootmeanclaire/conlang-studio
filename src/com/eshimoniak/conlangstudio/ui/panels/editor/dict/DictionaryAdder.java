@@ -9,9 +9,12 @@ import java.util.List;
 
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
+
+import com.eshimoniak.conlangstudio.Main;
 
 @SuppressWarnings("serial")
 public class DictionaryAdder extends JPanel {
@@ -41,7 +44,15 @@ public class DictionaryAdder extends JPanel {
 		add.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				de.addEntry(getEntry());
+				String[] entry = getEntry();
+				if (de.hasEntry(entry[0])) {
+					de.addEntry(entry);
+					for (DictionaryFieldAdder field : fields) {
+						field.getTextField().setText("");
+					}
+				} else {
+					JOptionPane.showMessageDialog(Main.getWindow(), "An entry with they key already exists", "Dictionary Error", JOptionPane.ERROR_MESSAGE);
+				}
 			}
 		});
 		content.add(add);

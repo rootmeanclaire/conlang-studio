@@ -19,7 +19,7 @@ import com.eshimoniak.conlangstudio.ui.MainWindow;
  * @author Evan Shimoniak
 **/
 public class Main {
-	public static final String VERSION = "0.1.1";
+	public static final String VERSION = "0.2.0";
 	public static File projectRoot;
 	public static File currFile = null;
 	private static MainWindow window;
@@ -40,6 +40,7 @@ public class Main {
 			jfc.setDialogTitle("Select a workspace");
 			jfc.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
 			int returnVal = jfc.showOpenDialog(null);
+			//Exit program if no workspace chosen
 			if (returnVal != JFileChooser.APPROVE_OPTION) {
 				System.exit(0);
 			} else {
@@ -51,7 +52,7 @@ public class Main {
 		try {
 			MarkdownExtensions.init();
 		} catch (IOException e) {
-			JOptionPane.showMessageDialog(null, "Unable to markdown extensions", "Interal Error", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(null, "Unable to load markdown extensions", "Interal Error", JOptionPane.ERROR_MESSAGE);
 			e.printStackTrace();
 		}
 		window = new MainWindow();
@@ -92,7 +93,8 @@ public class Main {
 			JFileChooser jfc = new JFileChooser();
 			jfc.setCurrentDirectory(Main.projectRoot);
 			jfc.setFileSelectionMode(JFileChooser.FILES_ONLY);
-			//Note: default file type is markdown
+			//Note: currFile will only be null when editing
+			//an unsaved markdown file
 			jfc.addChoosableFileFilter(new FileFilter() {
 				@Override
 				public String getDescription() {

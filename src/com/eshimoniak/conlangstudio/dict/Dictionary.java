@@ -169,4 +169,7 @@ public class Dictionary {
 		
 		return props;
 	}
+	public boolean hasEntry(String key) {
+		return entries.containsKey(key);
+	}
 }

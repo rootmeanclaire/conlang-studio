@@ -19,6 +19,10 @@ import org.json.JSONObject;
 public class MarkdownExtensions {
 	private static JSONObject pConsData;
 	
+	/**
+	 * Load in JSON data about where to position
+	 * consonants on a consonant chart
+	**/
 	public static void init() throws IOException {
 		InputStream in = MarkdownExtensions.class.getClassLoader().getResourceAsStream("res/pcons.json"); 
 		BufferedReader reader = new BufferedReader(new InputStreamReader(in, Charset.forName("UTF-8")));
@@ -31,7 +35,11 @@ public class MarkdownExtensions {
 		}
 		pConsData = new JSONObject(sb.toString());
 	}
-
+	
+	/**
+	 * Process custom markdown before passing text to standard
+	 * markdown parser
+	**/
 	public static String parseMarkdownExtensions(String text) {
 		Pattern p = Pattern.compile("\\\\ipaChart:.+");
 		Matcher m = p.matcher(text);
@@ -56,6 +64,10 @@ public class MarkdownExtensions {
 		return sb.toString();
 	}
 	
+	/**
+	 * Convert a list of pulmonic consonants to a markdown table
+	 * @param pulmConsList List of IPA consonant symbols
+	**/
 	public static String pulmConsListToMdTable(String[] pulmConsList) {
 		StringBuilder sb = new StringBuilder();
 		List<String> manners = new ArrayList<>();
@@ -63,6 +75,7 @@ public class MarkdownExtensions {
 		
 		for (String pConsStr : pulmConsList) {
 			JSONObject pCons = pConsData.getJSONObject(pConsStr);
+			//Determine what rows are needed on the table
 			String thisManner = pCons.getString("manner");
 			String thisPlace = pCons.getString("place");
 			if (!manners.contains(thisManner)) {
@@ -84,6 +97,7 @@ public class MarkdownExtensions {
 			sb.append("|:---:");
 		}
 		sb.append("\n|");
+		//Put consonants on table
 		for (String manner : manners) {
 			sb.append("**" + Util.capitalize(manner) + "**|");
 			for (int i = 0; i < places.size(); i++) {

@@ -2,7 +2,6 @@ package com.eshimoniak.conlangstudio.ui.panels.editor.dict;
 
 import java.io.File;
 
-import javax.swing.JLabel;
 import javax.swing.table.DefaultTableModel;
 
 import com.eshimoniak.conlangstudio.Main;
@@ -63,6 +62,9 @@ public class DictionaryEditor extends FileEditor {
 		
 		dv.validate();
 		dv.repaint();
+	}
+	public boolean hasEntry(String key) {
+		return dict.hasEntry(key);
 	}
 	
 	public DictionaryAdder getDictionaryAdder() {
