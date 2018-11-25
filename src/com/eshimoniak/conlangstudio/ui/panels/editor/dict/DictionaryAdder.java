@@ -45,13 +45,13 @@ public class DictionaryAdder extends JPanel {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				String[] entry = getEntry();
-				if (de.hasEntry(entry[0])) {
+				if (!de.hasEntry(entry[0])) {
 					de.addEntry(entry);
 					for (DictionaryFieldAdder field : fields) {
 						field.getTextField().setText("");
 					}
 				} else {
-					JOptionPane.showMessageDialog(Main.getWindow(), "An entry with they key already exists", "Dictionary Error", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(Main.getWindow(), "An entry with that key already exists", "Dictionary Error", JOptionPane.ERROR_MESSAGE);
 				}
 			}
 		});

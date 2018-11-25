@@ -18,6 +18,7 @@ public class DictionarySetup extends JFrame {
 	private List<DictionaryHeaderField> props;
 	private JButton newProp;
 	private JButton createDict;
+	private boolean shouldCreate = false;
 	
 	public DictionarySetup(File f) {
 		super("Dictionary Creator");
@@ -48,6 +49,7 @@ public class DictionarySetup extends JFrame {
 		createDict.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				shouldCreate = true;
 				dispatchEvent(new WindowEvent(DictionarySetup.this, WindowEvent.WINDOW_CLOSING));
 			}
 		});
@@ -67,5 +69,9 @@ public class DictionarySetup extends JFrame {
 			headers[i] = props.get(i).getText();
 		}
 		return headers;
+	}
+	
+	public boolean shouldCreate() {
+		return shouldCreate;
 	}
 }

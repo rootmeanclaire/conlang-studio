@@ -105,11 +105,13 @@ public class FileTreePopup extends JPopupMenu {
 										DictionarySetup winSetup = new DictionarySetup(newFile);
 										winSetup.addWindowListener(new WindowAdapter() {
 											public void windowClosing(WindowEvent e) {
-												FileEditor editor = new DictionaryEditor(newFile, winSetup.getHeaders());
-												EditorWrapper ew = Main.getWindow().getEditorWrapper();
-												ew.addTab(newFile.getName(), editor);
-												ew.setSelectedIndex(ew.getTabCount() - 1);
-												ew.setTabComponentAt(ew.getTabCount() - 1, new CloseableTab(newFile.getName(), ew, (FileEditor) ew.getSelectedComponent()));
+												if (winSetup.shouldCreate()) {
+													FileEditor editor = new DictionaryEditor(newFile, winSetup.getHeaders());
+													EditorWrapper ew = Main.getWindow().getEditorWrapper();
+													ew.addTab(newFile.getName(), editor);
+													ew.setSelectedIndex(ew.getTabCount() - 1);
+													ew.setTabComponentAt(ew.getTabCount() - 1, new CloseableTab(newFile.getName(), ew, (FileEditor) ew.getSelectedComponent()));
+												}
 											}
 										});
 										ftv.refreshTree();

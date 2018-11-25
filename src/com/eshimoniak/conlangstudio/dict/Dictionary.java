@@ -170,6 +170,8 @@ public class Dictionary {
 		return props;
 	}
 	public boolean hasEntry(String key) {
+		System.out.println("Key: " + key);
+		System.out.println("Entries: " + entries.keySet().toString());
 		return entries.containsKey(key);
 	}
 }
