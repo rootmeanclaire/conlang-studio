@@ -6,6 +6,8 @@ import java.awt.event.MouseEvent;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.event.TableModelEvent;
+import javax.swing.event.TableModelListener;
 import javax.swing.table.DefaultTableModel;
 
 import com.eshimoniak.conlangstudio.dict.Dictionary;
@@ -19,6 +21,18 @@ public class DictionaryViewer extends JPanel {
 	public DictionaryViewer(Dictionary dict) {
 		table = new JTable();
 		dtm = new DefaultTableModel(dict.getHeaders(), dict.numEntries());
+		dtm.addTableModelListener(new TableModelListener() {
+			@Override
+			public void tableChanged(TableModelEvent e) {
+				if (getSelectedRow() >= 0) { 
+					String[] entry = new String[dict.getHeaders().length];
+					for (int c = 0; c < entry.length; c++) {
+						entry[c] = (String) dtm.getValueAt(getSelectedRow(), c);
+					}
+					dict.setEntry(entry);
+				}
+			}
+		});
 		table.setModel(dtm);
 		table.setRowHeight(25);
 		table.addMouseListener(new MouseAdapter() {

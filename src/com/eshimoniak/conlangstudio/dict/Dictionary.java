@@ -45,14 +45,15 @@ public class Dictionary {
 				String[] splitLn = ln.split("(?<=[^\\\\](\\\\\\\\){0,99})\\,");
 				String[] entry = new String[headers.length - 1];
 				for (int i = 0; i < entry.length; i++) {
-					if (i >= splitLn.length || splitLn[i].isEmpty()) {
+					if (i + 1 >= splitLn.length || splitLn[i + 1].isEmpty()) {
 						entry[i] = null;
 					} else {
-						entry[i] = splitLn[i];
+						entry[i] = splitLn[i + 1];
 					}
 				}
 				entries.put(splitLn[0], entry);
 			}
+			in.close();
 		} catch (IOException e) {
 			JOptionPane.showMessageDialog(null, "Error reading dictionary file", "IO Error", JOptionPane.ERROR_MESSAGE);
 			e.printStackTrace();
@@ -99,28 +100,26 @@ public class Dictionary {
 	}
 	public String toFileString() {
 		StringBuilder sb = new StringBuilder();
-		Iterator<Entry<String, String[]>> iter = entries.entrySet().iterator();
 		
-		for (int i = 0; i < headers.length; i++) {
-			sb.append(headers[i]);
-			sb.append(',');
-		}
-		sb.setLength(sb.length() - 1);
-		sb.append('\n');
-		for (int r = 0; r < entries.size(); r++) {
-			Map.Entry<String, String[]> entry = (Entry<String, String[]>) iter.next();
-			List<String> tmp = new ArrayList<String>(Arrays.asList(entry.getValue()));
-			tmp.add(0, entry.getKey());
-			for (String s : tmp) {
-				if (s != null) {
-					sb.append(s.replace(",", "\\,"));
-				} else {
-					sb.append("");
-				}
+		if (headers.length > 0) {
+			for (int i = 0; i < headers.length; i++) {
+				sb.append(headers[i]);
 				sb.append(',');
 			}
 			sb.setLength(sb.length() - 1);
 			sb.append('\n');
+			for (Map.Entry<String, String[]> entry : entries.entrySet()) {
+				sb.append(entry.getKey());
+				sb.append(',');
+				for (String s : entry.getValue()) {
+					if (s != null) {
+						sb.append(s.replace(",", "\\,"));
+					}
+					sb.append(',');
+				}
+				sb.setLength(sb.length() - 1);
+				sb.append('\n');
+			}
 		}
 		
 		return sb.toString();
@@ -170,8 +169,6 @@ public class Dictionary {
 		return props;
 	}
 	public boolean hasEntry(String key) {
-		System.out.println("Key: " + key);
-		System.out.println("Entries: " + entries.keySet().toString());
 		return entries.containsKey(key);
 	}
 }
